@@ -1,0 +1,91 @@
+/*******************************************************************************
+ ~> Variables */
+/*******************************************************************************
+ ~> Main */
+html,
+body {
+  background-color: #e1e1e1;
+  color: #212121;
+  font-size: 13px;
+  font-family: 'Open Sans', serif;
+  font-weight: 300;
+  padding: 0;
+  margin: 0;
+}
+.container .panel {
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
+  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  background-color: #fafafa;
+  border-radius: .2em;
+  padding: 1.15rem;
+}
+.container .panel a {
+  color: #212121;
+  display: block;
+  text-decoration: none;
+}
+.container .panel a:hover {
+  color: #545454;
+}
+.container .panel h6 {
+  margin-bottom: .2rem;
+}
+.container .panel:hover,
+.container .panel:focus {
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+.container .row {
+  margin-bottom: 1rem;
+}
+.container #clock {
+  font-size: 8em;
+  text-align: center;
+}
+@media (min-width: 550px) {
+  .container #clock {
+    margin-top: 5rem;
+  }
+}
+.container #search {
+  padding: 0!important;
+}
+.container #search input {
+  font-size: 1.4em;
+  border: 0!important;
+}
+/*******************************************************************************
+ ~> Grid */
+.columns {
+  margin-left: 2%;
+}
+.columns:first-child {
+  margin-left: 0;
+}
+.three.columns {
+  width: 23.5%;
+}
+.four.columns {
+  width: 32%;
+}
+.six.columns {
+  width: 49%;
+}
+/*******************************************************************************
+ ~> Mixins */
+/*******************************************************************************
+ ~> Element Tweaks */
+form {
+  margin: 0;
+}
+input {
+  margin: 0;
+}
