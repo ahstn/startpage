@@ -5,8 +5,8 @@
         <title>AH | Startpage</title>
         <link rel="stylesheet" href="css/Skeleton/css/normalize.css">
         <link rel="stylesheet" href="css/Skeleton/css/skeleton.css">
+        <link rel="stylesheet" href="css/material-font.min.css">
         <link rel="stylesheet" href="css/material.css">
-        <link rel="stylesheet" href="css/material-color.css">
     </head>
     <body>
         <div class="container">
@@ -14,7 +14,7 @@
                 <div id="clock">00:00:00</div>
             </div>
             <div class="row">
-                <div class="twelve columns panel" id="search">
+                <div class="twelve columns panel panel-blue" id="search">
                     <form action="https://www.google.com/search">
                         <input class="u-full-width"
                             type="Text" name="search" placeholder="Google"\>
@@ -22,28 +22,28 @@
                 </div>
             </div>
             <div class="row">
-                <div class="three columns panel">
+                <div class="three columns panel panel-blue">
                     <h6>Personal</h6>
                     <a href="http://gmail.com">Gmail</a>
         			<a href="http://keep.google.com">Keep</a>
         			<a href="https://drive.google.com/#my-drive">Drive</a>
         			<a href="https://evernote.com/">Evernote</a>
                 </div>
-                <div class="three columns panel">
+                <div class="three columns panel panel-blue">
                     <h6>Personal</h6>
                     <a href="http://gmail.com">Gmail</a>
         			<a href="http://keep.google.com">Keep</a>
         			<a href="https://drive.google.com/#my-drive">Drive</a>
         			<a href="https://evernote.com/">Evernote</a>
                 </div>
-                <div class="three columns panel">
+                <div class="three columns panel panel-blue">
                     <h6>Personal</h6>
                     <a href="http://gmail.com">Gmail</a>
         			<a href="http://keep.google.com">Keep</a>
         			<a href="https://drive.google.com/#my-drive">Drive</a>
         			<a href="https://evernote.com/">Evernote</a>
                 </div>
-                <div class="three columns panel">
+                <div class="three columns panel panel-blue">
                     <h6>Personal</h6>
                     <a href="http://gmail.com">Gmail</a>
         			<a href="http://keep.google.com">Keep</a>
@@ -52,21 +52,21 @@
                 </div>
             </div>
             <div class="row">
-                <div class="four columns panel">
+                <div class="four columns panel panel-blue">
                     <h6>RSS Feed</h6>
                     <a href="http://gmail.com">Gmail</a>
         			<a href="http://keep.google.com">Keep</a>
         			<a href="https://drive.google.com/#my-drive">Drive</a>
         			<a href="https://evernote.com/">Evernote</a>
                 </div>
-                <div class="four columns panel">
+                <div class="four columns panel panel-blue">
                     <h6>RSS Feed</h6>
                     <a href="http://gmail.com">Gmail</a>
         			<a href="http://keep.google.com">Keep</a>
         			<a href="https://drive.google.com/#my-drive">Drive</a>
         			<a href="https://evernote.com/">Evernote</a>
                 </div>
-                <div class="four columns panel">
+                <div class="four columns panel panel-blue">
                     <h6>RSS Feed</h6>
                     <a href="http://gmail.com">Gmail</a>
         			<a href="http://keep.google.com">Keep</a>
@@ -75,27 +75,31 @@
                 </div>
             </div>
             <div class="row">
-                <div class="six columns panel">
+                <div class="six columns panel panel-blue">
                     <h6>Weather</h6>
                 </div>
-                <div class="six columns panel">
+                <div class="six columns panel panel-blue">
                     <h6>Sport</h6>
                 </div>
             </div>
         </div>
-        <script>
-            function GetClock(){
-    			d = new Date();
-    			nhour  = d.getHours();
-    			nmin   = d.getMinutes();
-    			nsec   = d.getSeconds();
-    			if(nmin <= 9) {nmin = "0" +nmin;}
-    			if(nsec <= 9) {nsec = "0" +nsec;}
-    			document.getElementById('clock').innerHTML=""+nhour+":"+nmin+":"+nsec+"";
-    			setTimeout("GetClock()", 1000);
-                console.log('hi');
-    		}
-    		window.onload=GetClock;
-        </script>
+        <div class="btn-fixed-bottom" id="fab">
+            <a class="btn-fixed-bottom btn-circle btn-red">
+                <i class="zmdi zmdi-edit"></i>
+            </a>
+            <ul>
+                <li>
+                    <a class="btn-circle btn-blue">
+                        <i class="zmdi zmdi-github"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn-circle btn-blue">
+                        <i class="zmdi zmdi-eye"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <script src="js/material.js"></script>
     </body>
 </html>
