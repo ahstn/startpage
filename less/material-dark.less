@@ -1,7 +1,8 @@
+
 /*******************************************************************************
  ~> Variables */
-@text-primary: #212121;
-@text-primary-lighter: lighten(@text-primary, 20%);
+@text-primary: white;
+@text-primary-lighter: lighten(@text-primary, 5%);
 @text-secondary: white;
 
 @primary-darker: darken(@primary, 20%);
@@ -12,12 +13,13 @@
 
 @divider: #B6B6B6;
 
-@panel-bg: #FAFAFA;
-@panel-bg-darker: darken(@panel-bg, 10%);
+@panel-bg: #424242;
+@panel-bg-darker: darken(@panel-bg, 7%); // #303030
 
 @screen-sm: 480px;
 @screen-md: 768px;
 @screen-lg: 1200px;
+
 
 /*******************************************************************************
  ~> Main */
@@ -76,6 +78,7 @@
     }
 
     #clock {
+        color: @primary;
         font-size: 8em;
         text-align: center;
 
