@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="css/Skeleton/css/normalize.css">
         <link rel="stylesheet" href="css/Skeleton/css/skeleton.css">
         <link rel="stylesheet" href="css/material-font.min.css">
-        <link rel="stylesheet" href="css/material-dark.css" id="materialcss">
+        <link rel="stylesheet" href="css/material.css" id="materialcss">
     </head>
     <body>
         <div class="container">
@@ -23,25 +23,31 @@
             </div>
             <div class="row">
                 <div class="three columns panel panel-blue">
-                    <h6>Personal</h6>
-                    <a href="http://gmail.com">Gmail</a>
-        			<a href="http://keep.google.com">Keep</a>
+                    <div class="panel-heading">
+                        <h6>Personal</h6>
+                        <a class="zmdi zmdi-more-vert"></a>
+                    </div>
+                    <a href="https://gmail.com">Gmail</a>
+        			<a href="https://keep.google.com">Keep</a>
         			<a href="https://drive.google.com/#my-drive">Drive</a>
-        			<a href="https://evernote.com/">Outlook</a>
+        			<a href="https://live.com/">Outlook</a>
                 </div>
                 <div class="three columns panel panel-blue">
-        			<h6>Boards</h6>
-                    <a href="http://reddit.com/r/programming">/r/Programming</a>
-        			<a href="http://reddit.com/r/webdev">/r/WebDev</a>
+        			<div class="panel-heading">
+                        <h6>Boards</h6>
+                        <a class="zmdi zmdi-more-vert"></a>
+        			</div>
+                    <a href="https://reddit.com/r/programming">/r/Programming</a>
+        			<a href="https://reddit.com/r/webdev">/r/WebDev</a>
         			<a href="https://boards.4chan.org/g/">/g/</a>
         			<a href="https://boards.4chan.org/sp/">/sp/</a>
                 </div>
                 <div class="three columns panel panel-blue">
                     <h6>Shopping</h6>
-        			<a href="http://www.amazon.co.uk/">Amazon</a>
-        			<a href="http://www.ebay.co.uk/">Ebay</a>
-        			<a href="http://www.overclockers.co.uk/">Overclockers</a>
-                    <a href="http://store.steampowered.com">Steam</a>
+        			<a href="https://www.amazon.co.uk/">Amazon</a>
+        			<a href="https://www.ebay.co.uk/">Ebay</a>
+        			<a href="https://www.overclockers.co.uk/">Overclockers</a>
+                    <a href="https://store.steampowered.com">Steam</a>
                 </div>
                 <div class="three columns panel panel-blue">
                     <h6>News</h6>
@@ -51,35 +57,24 @@
         			<a href="http://www.theguardian.com/uk">Guardian</a>
                 </div>
             </div>
-            <div class="row">
-                <div class="four columns panel panel-blue">
-                    <h6>RSS Feed</h6>
-                    <a href="http://gmail.com">Gmail</a>
-        			<a href="http://keep.google.com">Keep</a>
-        			<a href="https://drive.google.com/#my-drive">Drive</a>
-        			<a href="https://evernote.com/">Evernote</a>
+            <div class="row" id="rssFeeds">
+                <div class="four columns panel panel-blue" id="rssOne">
+                    <h6>BBC News</h6>
                 </div>
-                <div class="four columns panel panel-blue">
-                    <h6>RSS Feed</h6>
-                    <a href="http://gmail.com">Gmail</a>
-        			<a href="http://keep.google.com">Keep</a>
-        			<a href="https://drive.google.com/#my-drive">Drive</a>
-        			<a href="https://evernote.com/">Evernote</a>
+                <div class="four columns panel panel-blue" id="rssTwo">
+                    <h6>BBC Technology</h6>
                 </div>
-                <div class="four columns panel panel-blue">
-                    <h6>RSS Feed</h6>
-                    <a href="http://gmail.com">Gmail</a>
-        			<a href="http://keep.google.com">Keep</a>
-        			<a href="https://drive.google.com/#my-drive">Drive</a>
-        			<a href="https://evernote.com/">Evernote</a>
+                <div class="four columns panel panel-blue" id="rssThree">
+                    <h6>Sky Sports</h6>
                 </div>
             </div>
             <div class="row">
-                <div class="six columns panel panel-blue">
+                <div class="twelve columns panel panel-blue">
                     <h6>Weather</h6>
-                </div>
-                <div class="six columns panel panel-blue">
-                    <h6>Sport</h6>
+                    <!--
+                        TODO: Decide if Weather should be added
+                        if so, implement it in rss.js
+                    -->
                 </div>
             </div>
         </div>
@@ -100,6 +95,8 @@
                 </li>
             </ul>
         </div>
+        <script src="js/jquery/jquery-2.1.4.min.js"></script>
         <script src="js/material.js"></script>
+        <script src="js/rss.js"></script>
     </body>
 </html>

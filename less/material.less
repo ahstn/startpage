@@ -1,3 +1,9 @@
+/**
+  * @desc Material Design Light theme stylesheet
+  * @author Adam Houston
+  * @required --
+*/
+
 /*******************************************************************************
  ~> Variables */
 @text-primary: #212121;
@@ -58,17 +64,47 @@
             margin-bottom: 1rem;
             padding: .6rem 1.15rem .35rem;
         }
-    }
+        .panel-heading {
+            padding: .6rem 1.15rem .35rem;
+            margin-bottom: 1rem;
+            h6 {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+            }
+            a {
+                cursor: pointer;
+                display: inline-block;
+                float: right;
+                font-size: 1rem;
+                margin: 0!important;
+                padding: 0.25em 0.1em;
+            }
+        }
+    } // .panel end
     .panel:hover, .panel:focus {
         .shadow-darker();
         .shadow-animate-shorter();
     }
-    [class*="panel-"] h6, [class^="panel-"] h6 { /* All Colored Panels */
-        .inset-shadow();
-        color: @text-secondary;
+    .panel[class*="panel-"],
+    .panel[class^="panel-"] { /* All Colored Panels */
+        > h6 { /* Heading with no Menu Button */
+            .inset-shadow();
+            color: @text-secondary;
+        }
+        > .panel-heading { /* Heading with Menu Button */
+            .inset-shadow();
+            color: @text-secondary;
+        }
+        > .panel-heading a { /* Menu Button */
+            color: @text-secondary;
+            font-size: 1.5rem;
+        }
     }
-    .panel-blue h6 {
-        background-color: @primary;
+    .panel-blue {
+        > h6, > .panel-heading {
+            background-color: @primary;
+        }
     }
 
     .row {
@@ -196,7 +232,6 @@ input[type="text"], select, textarea {
     background-color: @panel-bg;
     color: @text-primary;
 }
-
 
 /*******************************************************************************
  ~> Grid */

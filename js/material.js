@@ -1,3 +1,10 @@
+/**
+  * @desc Handles the clock, changing stylesheets depending on time and
+  * 	implements an action listener for the floating action button
+  * @author Adam Houston
+  * @required --
+*/
+
 // Handling the page Clock
 function GetClock() {
 
@@ -7,9 +14,9 @@ function GetClock() {
 	min   = d.getMinutes();
 	sec   = d.getSeconds();
 	if (min <= 9)
-		min = "0" +min;
+		min = "0" + min;
 	if (sec <= 9)
-		sec = "0" +sec;
+		sec = "0" + sec;
 	document.getElementById('clock').innerHTML=""+hour+":"+min+":"+sec+"";
 
 	// If it's after 5PM and before 6AM use the dark theme
@@ -21,7 +28,7 @@ function GetClock() {
 	// Refresh every 1000ms (1 second)
 	setTimeout("GetClock()", 1000);
 }
-window.onload=GetClock;
+window.onload = GetClock;
 
 // Change the active Material Stylesheet
 function ChangeStylesheet(link) {
