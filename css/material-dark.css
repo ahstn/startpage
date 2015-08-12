@@ -1,3 +1,8 @@
+/**
+  * @desc Material Design Dark theme stylesheet
+  * @author Adam Houston
+  * @required --
+*/
 /*******************************************************************************
  ~> Variables */
 /*******************************************************************************
@@ -42,6 +47,23 @@ body {
   margin-bottom: 1rem;
   padding: .6rem 1.15rem .35rem;
 }
+.container .panel .panel-heading {
+  padding: .6rem 1.15rem .35rem;
+  margin-bottom: 1rem;
+}
+.container .panel .panel-heading h6 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.container .panel .panel-heading a {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  font-size: 1rem;
+  margin: 0!important;
+  padding: 0.25em 0.1em;
+}
 .container .panel:hover,
 .container .panel:focus {
   -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
@@ -51,15 +73,34 @@ body {
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
 }
-.container [class*="panel-"] h6,
-.container [class^="panel-"] h6 {
+.container .panel[class*="panel-"],
+.container .panel[class^="panel-"] {
   /* All Colored Panels */
+}
+.container .panel[class*="panel-"] > h6,
+.container .panel[class^="panel-"] > h6 {
+  /* Heading with no Menu Button */
   -webkit-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
   -moz-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
   box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
   color: white;
 }
-.container .panel-blue h6 {
+.container .panel[class*="panel-"] > .panel-heading,
+.container .panel[class^="panel-"] > .panel-heading {
+  /* Heading with Menu Button */
+  -webkit-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
+  -moz-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
+  box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
+  color: white;
+}
+.container .panel[class*="panel-"] > .panel-heading a,
+.container .panel[class^="panel-"] > .panel-heading a {
+  /* Menu Button */
+  color: white;
+  font-size: 1.5rem;
+}
+.container .panel-blue > h6,
+.container .panel-blue > .panel-heading {
   background-color: #03a9f4;
 }
 .container .row {

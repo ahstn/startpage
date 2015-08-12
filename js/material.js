@@ -7,7 +7,6 @@
 
 // Handling the page Clock
 function GetClock() {
-
 	// Get the time and edit the html
 	d = new Date();
 	hour  = d.getHours();
@@ -28,7 +27,7 @@ function GetClock() {
 	// Refresh every 1000ms (1 second)
 	setTimeout("GetClock()", 1000);
 }
-window.onload = GetClock;
+window.onload = GetClock();
 
 // Change the active Material Stylesheet
 function ChangeStylesheet(link) {
