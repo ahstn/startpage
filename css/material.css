@@ -376,6 +376,18 @@ ul.tabs li.two.columns {
 ul.tabs li.active {
   border-bottom: inset 3px #ff5252;
 }
+.tab-pane {
+  display: none;
+}
+.tab-pane .row {
+  margin-bottom: 1.6em;
+}
+.tab-pane .row:last-of-type {
+  margin-bottom: 0;
+}
+.tab-pane.active {
+  display: block;
+}
 /*******************************************************************************
  ~> Mixins */
 /*******************************************************************************

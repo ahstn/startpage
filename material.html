@@ -77,7 +77,7 @@
                     -->
                 </div>
             </div>
-        </div>
+        </div><!-- /container -->
         <div class="btn-fixed-bottom" id="fab">
             <a class="btn-fixed-bottom btn-circle btn-red">
                 <i class="zmdi zmdi-edit"></i>
@@ -94,8 +94,7 @@
                     </a>
                 </li>
             </ul>
-        </div>
-
+        </div><!-- /fab -->
         <div class="modal modal-blue" id="modal-settings">
             <div class="modal-content">
                 <div class="modal-header">
@@ -104,18 +103,42 @@
                     </div>
                     <div class="row">
                         <ul class="tabs twelve columns">
-                            <li class="two columns"><a href="#">Preferences</a></li>
-                            <li class="two columns active"><a href="#">RSS Feeds</a></li>
-                            <li class="two columns"><a href="#">Panel 1</a></li>
-                            <li class="two columns"><a href="#">Panel 2</a></li>
-                            <li class="two columns"><a href="#">Panel 3</a></li>
-                            <li class="two columns"><a href="#">Panel 4</a></li>
+                            <li class="two columns">
+                                <a class="tab" href="#tab-prefs">Preferences</a>
+                            </li>
+                            <li class="two columns active">
+                                <a class="tab" href="#tab-rss">RSS Feeds</a>
+                            </li>
+                            <li class="two columns">
+                                <a href="#">Panel 1</a>
+                            </li>
+                            <li class="two columns">
+                                <a href="#">Panel 2</a>
+                            </li>
+                            <li class="two columns">
+                                <a href="#">Panel 3</a>
+                            </li>
+                            <li class="two columns">
+                                <a href="#">Panel 4</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- TODO: Add Tabs for Panels, RSS and Prefs -->
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <div id="tab-prefs" class="tab-pane">
+                        <div class="row">
+                            <label for="tbPrimaryColor">Primary Color</label>
+                            <input class="u-full-width" id="tbPrimaryColor"
+                                type="select">
+                        </div>
+                        <div class="row">
+                            <label for="tbSecondaryColor">Secondary Color</label>
+                            <input class="u-full-width" id="tbSecondaryColor"
+                                type="select">
+                        </div>
+                    </div>
+                    <div id="tab-rss" class="tab-pane active">
                         <div class="row">
                             <div class="four columns">
                                 <label for="tbRssOneTitle">Title</label>
@@ -152,7 +175,7 @@
                                     type="text">
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" id="btn-modal-cancel">

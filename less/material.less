@@ -367,6 +367,19 @@ ul.tabs {
         border-bottom: inset 3px @secondary;
     }
 }
+.tab-pane {
+    display: none;
+
+    .row {
+        margin-bottom: 1.6em;
+    }
+    .row:last-of-type {
+        margin-bottom: 0;
+    }
+}
+.tab-pane.active {
+    display: block;
+}
 
 /*******************************************************************************
  ~> Mixins */

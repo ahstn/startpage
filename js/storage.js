@@ -22,11 +22,11 @@ function StoreSettings() {
         console.log('Sorry, your browser doesn\'t support local storage');
         // TODO: Implement warning/error msg when user tries to edit settings
     }
-};
+}
 
 function RetrievePrimaryColor() {
     return localStorage.getItem('primaryColor');
-};
+}
 
 function RetrieveRssFeeds() {
     return {
@@ -37,4 +37,25 @@ function RetrieveRssFeeds() {
         'c1' : localStorage.getItem('rssThreeTitle'),
         'c2' : localStorage.getItem('rssThreeLink')
     };
+}
+
+function GetRssFeeds(entry) {
+    if (entry == 1) {
+        return [
+            localStorage.getItem('rssOneTitle'),
+            localStorage.getItem('rssOneLink'),
+        ];
+    }
+    else if (entry == 2) {
+        return [
+            localStorage.getItem('rssTwoTitle'),
+            localStorage.getItem('rssTwoLink'),
+        ];
+    }
+    else if (entry == 3) {
+        return [
+            localStorage.getItem('rssThreeTitle'),
+            localStorage.getItem('rssThreeLink'),
+        ];
+    }
 };
