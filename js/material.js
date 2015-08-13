@@ -42,5 +42,16 @@ function fabEnable() {
 function fabDisable() {
     fab.classList.remove('fab-active');
 }
-fab.addEventListener("mouseover", fabEnable);
-fab.addEventListener("mouseout", fabDisable);
+fab.addEventListener('mouseover', fabEnable);
+fab.addEventListener('mouseout', fabDisable);
+
+// Handle the Modal
+var modal = document.getElementById('modal-settings');
+function HandleModal() {
+	modal.classList.toggle('in');
+}
+[].forEach.call(document.getElementsByClassName('zmdi-more-vert'), function(entry) {
+	// foreach overflow menu icon add a click listener which calls HandleModal()
+	entry.addEventListener('click', HandleModal);
+});
+document.getElementById('btn-modal-cancel').addEventListener('click', HandleModal);

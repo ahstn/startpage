@@ -25,7 +25,7 @@
                 <div class="three columns panel panel-blue">
                     <div class="panel-heading">
                         <h6>Personal</h6>
-                        <a class="zmdi zmdi-more-vert"></a>
+                        <a class="zmdi zmdi-more-vert" id="menu"></a>
                     </div>
                     <a href="https://gmail.com">Gmail</a>
         			<a href="https://keep.google.com">Keep</a>
@@ -94,6 +94,75 @@
                     </a>
                 </li>
             </ul>
+        </div>
+
+        <div class="modal modal-blue" id="modal-settings">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <h6>User Settings</h6>
+                    </div>
+                    <div class="row">
+                        <ul class="tabs twelve columns">
+                            <li class="two columns"><a href="#">Preferences</a></li>
+                            <li class="two columns active"><a href="#">RSS Feeds</a></li>
+                            <li class="two columns"><a href="#">Panel 1</a></li>
+                            <li class="two columns"><a href="#">Panel 2</a></li>
+                            <li class="two columns"><a href="#">Panel 3</a></li>
+                            <li class="two columns"><a href="#">Panel 4</a></li>
+                        </ul>
+                    </div>
+                    <!-- TODO: Add Tabs for Panels, RSS and Prefs -->
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="tbRssOneTitle">Title</label>
+                                <input class="u-full-width" id="tbRssOneTitle"
+                                    type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label for="tbRssOneLink">URL</label>
+                                <input class="u-full-width" id="tbRssOneLink"
+                                    type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="tbRssTwoTitle">Title</label>
+                                <input class="u-full-width" id="tbRssTwoTitle"
+                                    type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label for="tbRssTwoLink">URL</label>
+                                <input class="u-full-width" id="tbRssTwoLink"
+                                    type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label for="tbRssThreeTitle">Title</label>
+                                <input class="u-full-width" id="tbRssThreeTitle"
+                                    type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label for="tbRssThreeLink">URL</label>
+                                <input class="u-full-width" id="tbRssThreeLink"
+                                    type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" id="btn-modal-cancel">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-red "id="btn-modal-save">
+                        Save
+                    </button>
+                </div>
+            </div>
         </div>
         <script src="js/jquery/jquery-2.1.4.min.js"></script>
         <script src="js/material.js"></script>

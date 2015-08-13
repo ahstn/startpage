@@ -91,10 +91,14 @@
         > h6 { /* Heading with no Menu Button */
             .inset-shadow();
             color: @text-secondary;
+            border-top-left-radius: .2em;
+            border-top-right-radius: .2em;
         }
         > .panel-heading { /* Heading with Menu Button */
             .inset-shadow();
             color: @text-secondary;
+            border-top-left-radius: .2em;
+            border-top-right-radius: .2em;
         }
         > .panel-heading a { /* Menu Button */
             color: @text-secondary;
@@ -127,6 +131,15 @@
             border: 0!important;
         }
     }
+    .columns {
+        margin-left: 2%;
+    }
+    .columns:first-child {
+        margin-left: 0;
+    }
+    .three.columns { width: 23.5%; }
+    .four.columns  { width: 32%; }
+    .six.columns   { width: 49%; }
 }
 
 /*******************************************************************************
@@ -139,6 +152,16 @@
     .btn-circle {
         z-index: 998;
     }
+}
+
+.btn {
+    border-radius: .3em;
+    border: 0;
+    color: @text-primary;
+    display: inline-block;
+    font-size: 1.1em;
+    padding: .1em 3em;
+    text-transform: uppercase;
 }
 
 .btn-circle {
@@ -158,12 +181,19 @@
         text-align: center;
     }
 }
-.btn-circle:hover, btn-circle:focus {
-    .shadow-darker();
+
+.btn[class*="btn-"],
+.btn[class^="btn-"] { /* all colored buttons */
+    .shadow();
     .shadow-animate-shorter();
     color: @text-secondary;
-}
 
+    &:hover, &:focus {
+        .shadow-darker();
+        .shadow-animate-shorter();
+        color: @text-secondary;
+    }
+}
 .btn-blue {
     background-color: @primary;
 }
@@ -173,7 +203,7 @@
 
 /*******************************************************************************
  ~> Floating Action Buttons */
-ul {
+#fab ul {
     bottom: 4.5em;
     display: inline-block;
     margin: 0px;
@@ -181,12 +211,14 @@ ul {
     text-align: center;
     width: 4.5em;
     z-index: 990;
+
+    li {
+        list-style: none;
+        margin-bottom: 1em;
+    }
 }
-ul li {
-    list-style: none;
-    margin-bottom: 1em;
-}
-ul li .btn-circle {
+
+#fab ul li .btn-circle {
     .transform-animate();
     display: inline-block;
     height: 3.5rem;
@@ -228,22 +260,113 @@ ul li .btn-circle {
 
 /*******************************************************************************
  ~> Inputs */
+form {
+    .row {
+        margin-bottom: 1.6rem;
+    }
+    .row:last-of-type {
+        margin-bottom: 0;
+    }
+}
 input[type="text"], select, textarea {
     background-color: @panel-bg;
     color: @text-primary;
 }
 
 /*******************************************************************************
- ~> Grid */
-.columns {
-    margin-left: 2%;
+ ~> Modal */
+.modal {
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .modal-content {
+        .shadow();
+        .shadow-animate-shorter();
+        background-color: @panel-bg;
+        border-radius: .5em;
+        display: block;
+        margin: 3em auto;
+        width: 60%;
+
+        .modal-header, .modal-body, .modal-footer {
+            padding: 1em;
+        }
+        .modal-header {
+            padding-bottom: 0;
+            margin-bottom: 1.5em;
+            h6 {
+                margin: 0;
+                font-weight: 600;
+            }
+        }
+        .modal-body {
+            padding: 1em 4em;
+        }
+        .modal-footer {
+            text-align: right;
+            button {
+                margin-bottom: 0;
+            }
+        }
+    }
 }
-.columns:first-child {
-    margin-left: 0;
+.modal-blue {
+    .modal-content {
+        .modal-header {
+            background-color: @primary;
+            color: @text-primary;
+        }
+    }
 }
-.three.columns { width: 23.5%; }
-.four.columns  { width: 32%; }
-.six.columns   { width: 49%; }
+.modal[class*="modal-"],
+.modal[class^="modal-"] { /* all colored modals */
+    .modal-content {
+        .modal-header {
+            .inset-shadow();
+            border-top-left-radius: .5em;
+            border-top-right-radius: .5em;
+            h6 {
+                color: @text-secondary;
+            }
+        }
+    }
+}
+.modal.in {
+    display: block;
+}
+
+/*******************************************************************************
+ ~> Tabs */
+ul.tabs {
+    list-style: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    li {
+        padding: 1.2em 0 0.5em;
+        a {
+            color: @text-secondary;
+            text-decoration: none;
+        }
+    }
+    li.columns {
+        margin: 0;
+    }
+    li.two.columns {
+        width: 16.6666%;
+    }
+    li.active {
+        border-bottom: inset 3px @secondary;
+    }
+}
 
 /*******************************************************************************
  ~> Mixins */
@@ -286,6 +409,8 @@ input[type="text"], select, textarea {
                             opacity @animate-length linear,
                             box-shadow @animate-length linear;
 }
+
+// TODO: Button click animations & Modal fade in
 
 /*******************************************************************************
  ~> Element Tweaks */

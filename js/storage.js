@@ -13,7 +13,7 @@ window.onload = function() {
 function StoreSettings() {
     if (typeof(Storage) != 'undefined') {
         //browser supports localStorage, so store settings
-        localStorage.setItem('primaryColor', 'blue'));
+        localStorage.setItem('primaryColor', 'blue');
         localStorage.setItem('rssThreeTitle', 'Sky Sports');
         localStorage.setItem('rssThreeLink',
             'http://skysports.com/rss/0,20514,11661,00.xml');
@@ -30,10 +30,11 @@ function RetrievePrimaryColor() {
 
 function RetrieveRssFeeds() {
     return {
-        localStorage.getItem('rssOneTitle'),
-        localStorage.getItem('rssOneLink'),
-        localStorage.getItem('rssTwoTitle'),
-        localStorage.getItem('rssThreeTitle'),
-        localStorage.getItem('rssThreeLink')
+        'a1' : localStorage.getItem('rssOneTitle'),
+        'a2' : localStorage.getItem('rssOneLink'),
+        'b1' : localStorage.getItem('rssTwoTitle'),
+        'b2' : localStorage.getItem('rssTwoLink'),
+        'c1' : localStorage.getItem('rssThreeTitle'),
+        'c2' : localStorage.getItem('rssThreeLink')
     };
 };
