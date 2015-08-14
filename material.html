@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div><!-- /container -->
-        <div class="btn-fixed-bottom" id="fab">
+        <div class="fab btn-fixed-bottom" id="fab">
             <a class="btn-fixed-bottom btn-circle btn-red">
                 <i class="zmdi zmdi-edit"></i>
             </a>
@@ -95,6 +95,7 @@
                 </li>
             </ul>
         </div><!-- /fab -->
+        <!-- User Settings Modal -->
         <div class="modal modal-blue" id="modal-settings">
             <div class="modal-content">
                 <div class="modal-header">
@@ -110,34 +111,49 @@
                                 <a class="tab" href="#tab-rss">RSS Feeds</a>
                             </li>
                             <li class="two columns">
-                                <a href="#">Panel 1</a>
+                                <a class="tab" href="#tab-panel1">Panel 1</a>
                             </li>
                             <li class="two columns">
-                                <a href="#">Panel 2</a>
+                                <a class="tab"  href="#tab-panel2">Panel 2</a>
                             </li>
                             <li class="two columns">
-                                <a href="#">Panel 3</a>
+                                <a class="tab" href="#tab-panel3">Panel 3</a>
                             </li>
                             <li class="two columns">
-                                <a href="#">Panel 4</a>
+                                <a class="tab" href="#tab-panel4">Panel 4</a>
                             </li>
                         </ul>
                     </div>
-                    <!-- TODO: Add Tabs for Panels, RSS and Prefs -->
                 </div>
                 <div class="modal-body">
                     <div id="tab-prefs" class="tab-pane">
                         <div class="row">
                             <label for="tbPrimaryColor">Primary Color</label>
-                            <input class="u-full-width" id="tbPrimaryColor"
-                                type="select">
+                            <select class="u-full-width" id="tbPrimaryColor">
+                                <option value="blue" autofocus>Blue</option>
+                                <option value="purple">Purple</option>
+                                <option value="indigo">Indigo</option>
+                                <option value="teal">Teal</option>
+                                <option value="green">Green</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="orange">Orange</option>
+                                <option value="red">Red</option>
+                            </select>
                         </div>
                         <div class="row">
                             <label for="tbSecondaryColor">Secondary Color</label>
-                            <input class="u-full-width" id="tbSecondaryColor"
-                                type="select">
+                            <select class="u-full-width" id="tbSecondaryColor">
+                                <option value="blue">Blue</option>
+                                <option value="purple">Purple</option>
+                                <option value="indigo">Indigo</option>
+                                <option value="teal">Teal</option>
+                                <option value="green">Green</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="orange">Orange</option>
+                                <option value="red" autofocus>Red</option>
+                            </select>
                         </div>
-                    </div>
+                    </div><!-- /prefs tab -->
                     <div id="tab-rss" class="tab-pane active">
                         <div class="row">
                             <div class="four columns">
@@ -175,7 +191,175 @@
                                     type="text">
                             </div>
                         </div>
-                    </div>
+                    </div><!-- /rss tab -->
+                    <div id="tab-panel1" class="tab-pane">
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                    </div><!-- /panel1 tab -->
+                    <div id="tab-panel2" class="tab-pane">
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                    </div><!-- /panel2 -->
+                    <div id="tab-panel3" class="tab-pane">
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                    </div><!-- /panel3 tab -->
+                    <div id="tab-panel4" class="tab-pane">
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
+                                <label>Title</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                            <div class="eight columns">
+                                <label>URL</label>
+                                <input class="u-full-width" type="text">
+                            </div>
+                        </div>
+                    </div><!-- /panel4 tab -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" id="btn-modal-cancel">

@@ -126,6 +126,9 @@ body {
   font-size: 1.4em;
   border: 0!important;
 }
+.container #rssFeeds .panel {
+  min-height: 11.75em;
+}
 .container .columns {
   margin-left: 2%;
 }
@@ -211,7 +214,7 @@ body {
 }
 /*******************************************************************************
  ~> Floating Action Buttons */
-#fab ul {
+.fab ul {
   bottom: 4.5em;
   display: inline-block;
   margin: 0px;
@@ -220,11 +223,21 @@ body {
   width: 4.5em;
   z-index: 990;
 }
-#fab ul li {
+.fab li {
   list-style: none;
   margin-bottom: 1em;
 }
-#fab ul li .btn-circle {
+.fab .btn-circle:hover,
+.fab .btn-cirle:focus {
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  -webkit-transition: box-shadow 0.5s linear;
+  -moz-transition: box-shadow 0.5s linear;
+  transition: box-shadow 0.5s linear;
+  color: white;
+}
+.fab ul li .btn-circle {
   -webkit-transition: -webkit-transform 0.2s linear, opacity 0.2s linear, box-shadow 0.2s linear;
   -moz-transition: -moz-transform 0.2s linear, opacity 0.2s linear, box-shadow 0.2s linear;
   transition: transform 0.2s linear, opacity 0.2s linear, box-shadow 0.2s linear;
@@ -234,7 +247,7 @@ body {
   transform: scale(0.5);
   width: 3.5rem;
 }
-#fab ul li .btn-circle i {
+.fab ul li .btn-circle i {
   font-size: 2em;
   line-height: 1.7em;
 }
@@ -255,16 +268,6 @@ body {
   padding: 5px 15px;
   position: absolute;
   z-index: 98;
-}
-.fab-active ul li .btn-circle:hover,
-.fab-active ul li btn-circle:focus {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -webkit-transition: box-shadow 0.5s linear;
-  -moz-transition: box-shadow 0.5s linear;
-  transition: box-shadow 0.5s linear;
-  color: white;
 }
 /*******************************************************************************
  ~> Inputs */

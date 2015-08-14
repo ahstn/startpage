@@ -131,6 +131,11 @@
             border: 0!important;
         }
     }
+    #rssFeeds {
+        .panel {
+            min-height: 11.75em;
+        }
+    }
     .columns {
         margin-left: 2%;
     }
@@ -203,22 +208,29 @@
 
 /*******************************************************************************
  ~> Floating Action Buttons */
-#fab ul {
-    bottom: 4.5em;
-    display: inline-block;
-    margin: 0px;
-    position: relative;
-    text-align: center;
-    width: 4.5em;
-    z-index: 990;
+.fab {
+    ul {
+        bottom: 4.5em;
+        display: inline-block;
+        margin: 0px;
+        position: relative;
+        text-align: center;
+        width: 4.5em;
+        z-index: 990;
+    }
 
     li {
         list-style: none;
         margin-bottom: 1em;
     }
+    .btn-circle:hover, .btn-cirle:focus {
+        .shadow-darker();
+        .shadow-animate-shorter();
+        color: @text-secondary;
+    }
 }
 
-#fab ul li .btn-circle {
+.fab ul li .btn-circle {
     .transform-animate();
     display: inline-block;
     height: 3.5rem;
@@ -251,11 +263,6 @@
         z-index: 98;
     }
 
-    .btn-circle:hover, btn-circle:focus {
-        .shadow-darker();
-        .shadow-animate-shorter();
-        color: @text-secondary;
-    }
 }
 
 /*******************************************************************************
