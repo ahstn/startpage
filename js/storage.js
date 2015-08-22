@@ -1,61 +1,58 @@
 /**
   * @desc Stores user settings using HTML5 localStorage
   * @author Adam Houston
-  * @required --
+  * @required AngularJS (& ngStorage module)
 */
 
-// DOING: Implement storage for user links, rss and preferences
-window.onload = function() {
-    StoreSettings();
-    console.log(RetrievePrimaryColor());
-};
+var app = angular.module("Startpage", ["ngStorage"]);
 
-function StoreSettings() {
-    if (typeof(Storage) != 'undefined') {
-        //browser supports localStorage, so store settings
-        localStorage.setItem('primaryColor', 'blue');
-        localStorage.setItem('rssThreeTitle', 'Sky Sports');
-        localStorage.setItem('rssThreeLink',
-            'http://skysports.com/rss/0,20514,11661,00.xml');
+app.controller("MainController", function($scope, $localStorage) {
+    var userPrefs = {
+        primaryColor: "blue",
+        secondaryColor: "red",
+        theme: "0" // 0 = time controlled, 1 = light theme, 2 = dark theme
     }
-    else {
-        console.log('Sorry, your browser doesn\'t support local storage');
-        // TODO: Implement warning/error msg when user tries to edit settings
-    }
-}
 
-function RetrievePrimaryColor() {
-    return localStorage.getItem('primaryColor');
-}
+    var userPanel1 = [
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' }
+    ]
+    var userPanel2 = [
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' }
+    ]
+    var userPanel3 = [
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' }
+    ]
+    var userPanel4 = [
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' },
+        { title: 'Google', url: 'http://google.com' }
+    ]
 
-function RetrieveRssFeeds() {
-    return {
-        'a1' : localStorage.getItem('rssOneTitle'),
-        'a2' : localStorage.getItem('rssOneLink'),
-        'b1' : localStorage.getItem('rssTwoTitle'),
-        'b2' : localStorage.getItem('rssTwoLink'),
-        'c1' : localStorage.getItem('rssThreeTitle'),
-        'c2' : localStorage.getItem('rssThreeLink')
-    };
-}
+    // Load User Data when page is loaded
+    $scope.init = function() {
+        $scope.userPrefs = userPrefs
+        $scope.userPanel1 = userPanel1;
+        $scope.userPanel2 = userPanel2;
+        $scope.userPanel3 = userPanel3;
+        $scope.userPanel4 = userPanel4;
+    }
 
-function GetRssFeeds(entry) {
-    if (entry == 1) {
-        return [
-            localStorage.getItem('rssOneTitle'),
-            localStorage.getItem('rssOneLink'),
-        ];
+    $scope.savePrefs = function() {
+        $localStorage.userPrefs = $scope.userPrefs;
     }
-    else if (entry == 2) {
-        return [
-            localStorage.getItem('rssTwoTitle'),
-            localStorage.getItem('rssTwoLink'),
-        ];
+    $scope.loadPrefs = function() {
+        $scope.userPrefs = $localStorage.userPrefs;
+        $scope.userPanel1 = $localStorage.userPanel1;
     }
-    else if (entry == 3) {
-        return [
-            localStorage.getItem('rssThreeTitle'),
-            localStorage.getItem('rssThreeLink'),
-        ];
-    }
-};
+
+});

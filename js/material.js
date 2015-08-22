@@ -3,7 +3,7 @@
   * 	implements an action listener for the floating action button
   * @author Adam Houston
   * @required --
-*/
+  */
 
 // Handling the page Clock
 function GetClock() {

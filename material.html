@@ -1,379 +1,270 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>AH | Startpage</title>
-        <link rel="stylesheet" href="css/Skeleton/css/normalize.css">
-        <link rel="stylesheet" href="css/Skeleton/css/skeleton.css">
-        <link rel="stylesheet" href="css/material-font.min.css">
-        <link rel="stylesheet" href="css/material.css" id="materialcss">
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div id="clock">00:00:00</div>
-            </div>
-            <div class="row">
-                <div class="twelve columns panel panel-blue" id="search">
-                    <form action="https://www.google.com/search">
-                        <input class="u-full-width"
-                            type="Text" name="search" placeholder="Google"\>
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="three columns panel panel-blue">
-                    <div class="panel-heading">
-                        <h6>Personal</h6>
-                        <a class="zmdi zmdi-more-vert" id="menu"></a>
-                    </div>
-                    <a href="https://gmail.com">Gmail</a>
-        			<a href="https://keep.google.com">Keep</a>
-        			<a href="https://drive.google.com/#my-drive">Drive</a>
-        			<a href="https://live.com/">Outlook</a>
-                </div>
-                <div class="three columns panel panel-blue">
-        			<div class="panel-heading">
-                        <h6>Boards</h6>
-                        <a class="zmdi zmdi-more-vert"></a>
-        			</div>
-                    <a href="https://reddit.com/r/programming">/r/Programming</a>
-        			<a href="https://reddit.com/r/webdev">/r/WebDev</a>
-        			<a href="https://boards.4chan.org/g/">/g/</a>
-        			<a href="https://boards.4chan.org/sp/">/sp/</a>
-                </div>
-                <div class="three columns panel panel-blue">
-                    <h6>Shopping</h6>
-        			<a href="https://www.amazon.co.uk/">Amazon</a>
-        			<a href="https://www.ebay.co.uk/">Ebay</a>
-        			<a href="https://www.overclockers.co.uk/">Overclockers</a>
-                    <a href="https://store.steampowered.com">Steam</a>
-                </div>
-                <div class="three columns panel panel-blue">
-                    <h6>News</h6>
-                    <a href="http://www.engadget.com/uk/">Engadget</a>
-        			<a href="http://arstechnica.com/">Ars Technica</a>
-        			<a href="http://www.howtogeek.com/">HowToGeek</a>
-        			<a href="http://www.theguardian.com/uk">Guardian</a>
-                </div>
-            </div>
-            <div class="row" id="rssFeeds">
-                <div class="four columns panel panel-blue" id="rssOne">
-                    <h6>BBC News</h6>
-                </div>
-                <div class="four columns panel panel-blue" id="rssTwo">
-                    <h6>BBC Technology</h6>
-                </div>
-                <div class="four columns panel panel-blue" id="rssThree">
-                    <h6>Sky Sports</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="twelve columns panel panel-blue">
-                    <h6>Weather</h6>
-                    <!--
-                        TODO: Decide if Weather should be added
-                        if so, implement it in rss.js
-                    -->
-                </div>
-            </div>
-        </div><!-- /container -->
-        <div class="fab btn-fixed-bottom" id="fab">
-            <a class="btn-fixed-bottom btn-circle btn-red">
-                <i class="zmdi zmdi-edit"></i>
-            </a>
-            <ul>
-                <li>
-                    <a class="btn-circle btn-blue" data-tooltip="Github">
-                        <i class="zmdi zmdi-github"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="btn-circle btn-blue" data-tooltip="Visuals">
-                        <i class="zmdi zmdi-eye"></i>
-                    </a>
-                </li>
-            </ul>
-        </div><!-- /fab -->
-        <!-- User Settings Modal -->
-        <div class="modal modal-blue" id="modal-settings">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="row">
-                        <h6>User Settings</h6>
-                    </div>
-                    <div class="row">
-                        <ul class="tabs twelve columns">
-                            <li class="two columns">
-                                <a class="tab" href="#tab-prefs">Preferences</a>
-                            </li>
-                            <li class="two columns active">
-                                <a class="tab" href="#tab-rss">RSS Feeds</a>
-                            </li>
-                            <li class="two columns">
-                                <a class="tab" href="#tab-panel1">Panel 1</a>
-                            </li>
-                            <li class="two columns">
-                                <a class="tab"  href="#tab-panel2">Panel 2</a>
-                            </li>
-                            <li class="two columns">
-                                <a class="tab" href="#tab-panel3">Panel 3</a>
-                            </li>
-                            <li class="two columns">
-                                <a class="tab" href="#tab-panel4">Panel 4</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div id="tab-prefs" class="tab-pane">
-                        <div class="row">
-                            <label for="tbPrimaryColor">Primary Color</label>
-                            <select class="u-full-width" id="tbPrimaryColor">
-                                <option value="blue" autofocus>Blue</option>
-                                <option value="purple">Purple</option>
-                                <option value="indigo">Indigo</option>
-                                <option value="teal">Teal</option>
-                                <option value="green">Green</option>
-                                <option value="yellow">Yellow</option>
-                                <option value="orange">Orange</option>
-                                <option value="red">Red</option>
-                            </select>
-                        </div>
-                        <div class="row">
-                            <label for="tbSecondaryColor">Secondary Color</label>
-                            <select class="u-full-width" id="tbSecondaryColor">
-                                <option value="blue">Blue</option>
-                                <option value="purple">Purple</option>
-                                <option value="indigo">Indigo</option>
-                                <option value="teal">Teal</option>
-                                <option value="green">Green</option>
-                                <option value="yellow">Yellow</option>
-                                <option value="orange">Orange</option>
-                                <option value="red" autofocus>Red</option>
-                            </select>
-                        </div>
-                    </div><!-- /prefs tab -->
-                    <div id="tab-rss" class="tab-pane active">
-                        <div class="row">
-                            <div class="four columns">
-                                <label for="tbRssOneTitle">Title</label>
-                                <input class="u-full-width" id="tbRssOneTitle"
-                                    type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label for="tbRssOneLink">URL</label>
-                                <input class="u-full-width" id="tbRssOneLink"
-                                    type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label for="tbRssTwoTitle">Title</label>
-                                <input class="u-full-width" id="tbRssTwoTitle"
-                                    type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label for="tbRssTwoLink">URL</label>
-                                <input class="u-full-width" id="tbRssTwoLink"
-                                    type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label for="tbRssThreeTitle">Title</label>
-                                <input class="u-full-width" id="tbRssThreeTitle"
-                                    type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label for="tbRssThreeLink">URL</label>
-                                <input class="u-full-width" id="tbRssThreeLink"
-                                    type="text">
-                            </div>
-                        </div>
-                    </div><!-- /rss tab -->
-                    <div id="tab-panel1" class="tab-pane">
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                    </div><!-- /panel1 tab -->
-                    <div id="tab-panel2" class="tab-pane">
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                    </div><!-- /panel2 -->
-                    <div id="tab-panel3" class="tab-pane">
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                    </div><!-- /panel3 tab -->
-                    <div id="tab-panel4" class="tab-pane">
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="four columns">
-                                <label>Title</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                            <div class="eight columns">
-                                <label>URL</label>
-                                <input class="u-full-width" type="text">
-                            </div>
-                        </div>
-                    </div><!-- /panel4 tab -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" id="btn-modal-cancel">
-                        Cancel
-                    </button>
-                    <button type="button" class="btn btn-red "id="btn-modal-save">
-                        Save
-                    </button>
-                </div>
-            </div>
+<head>
+  <meta charset="utf-8">
+  <title>AH | Startpage</title>
+  <link rel="stylesheet" href="css/Skeleton/normalize.css">
+  <link rel="stylesheet" href="css/Skeleton/skeleton.css">
+  <link rel="stylesheet" href="css/material-font.min.css">
+  <link rel="stylesheet" href="css/material.css" id="materialcss">
+  <script src="js/angularjs/angular.min.js"></script>
+  <script src="js/angularjs/ngStorage.min.js"></script>
+</head>
+<body ng-app="Startpage">
+  <div class="container">
+    <div class="row">
+
+      <div id="clock">00:00:00</div>
+    </div>
+    <div class="row">
+      <div class="twelve columns panel panel-blue" id="search">
+        <form action="https://www.google.com/search">
+          <input class="u-full-width"
+          type="Text" name="search" placeholder="Google"\>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="three columns panel panel-blue">
+        <div class="panel-heading">
+          <h6>Personal</h6>
+          <a class="zmdi zmdi-more-vert" id="menu"></a>
         </div>
-        <script src="js/jquery/jquery-2.1.4.min.js"></script>
-        <script src="js/material.js"></script>
-        <script src="js/rss.js"></script>
-        <script src="js/storage.js"></script>
-    </body>
+        <a href="https://gmail.com">Gmail</a>
+        <a href="https://keep.google.com">Keep</a>
+        <a href="https://drive.google.com/#my-drive">Drive</a>
+        <a href="https://live.com/">Outlook</a>
+      </div>
+      <div class="three columns panel panel-blue">
+        <div class="panel-heading">
+          <h6>Boards</h6>
+          <a class="zmdi zmdi-more-vert"></a>
+        </div>
+        <a href="https://reddit.com/r/programming">/r/Programming</a>
+        <a href="https://reddit.com/r/webdev">/r/WebDev</a>
+        <a href="https://boards.4chan.org/g/">/g/</a>
+        <a href="https://boards.4chan.org/sp/">/sp/</a>
+      </div>
+      <div class="three columns panel panel-blue">
+        <h6>Shopping</h6>
+        <a href="https://www.amazon.co.uk/">Amazon</a>
+        <a href="https://www.ebay.co.uk/">Ebay</a>
+        <a href="https://www.overclockers.co.uk/">Overclockers</a>
+        <a href="https://store.steampowered.com">Steam</a>
+      </div>
+      <div class="three columns panel panel-blue">
+        <h6>News</h6>
+        <a href="http://www.engadget.com/uk/">Engadget</a>
+        <a href="http://arstechnica.com/">Ars Technica</a>
+        <a href="http://www.howtogeek.com/">HowToGeek</a>
+        <a href="http://www.theguardian.com/uk">Guardian</a>
+      </div>
+    </div>
+    <div class="row" id="rssFeeds">
+      <div class="four columns panel panel-blue" id="rssOne">
+        <h6>BBC News</h6>
+      </div>
+      <div class="four columns panel panel-blue" id="rssTwo">
+        <h6>BBC Technology</h6>
+      </div>
+      <div class="four columns panel panel-blue" id="rssThree">
+        <h6>Sky Sports</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns panel panel-blue">
+        <h6>Weather</h6>
+        <!--
+        TODO: Decide if Weather should be added
+        if so, implement it in rss.js
+      -->
+    </div>
+  </div>
+</div><!-- /container -->
+<div class="fab btn-fixed-bottom" id="fab">
+  <a class="btn-fixed-bottom btn-circle btn-red">
+    <i class="zmdi zmdi-edit"></i>
+  </a>
+  <ul>
+    <li>
+      <a class="btn-circle btn-blue" data-tooltip="Github">
+        <i class="zmdi zmdi-github"></i>
+      </a>
+    </li>
+    <li>
+      <a class="btn-circle btn-blue" data-tooltip="Visuals">
+        <i class="zmdi zmdi-eye"></i>
+      </a>
+    </li>
+  </ul>
+</div><!-- /fab -->
+<!-- User Settings Modal -->
+<div ng-controller="MainController" ng-init="init()" class="modal modal-blue"
+  id="modal-settings">
+<div class="modal-content">
+  <div class="modal-header">
+    <!-- TODO: implement buttons for load and an overflow menu -->
+    <div class="row">
+      <h6>User Settings</h6>
+    </div>
+    <div class="row">
+      <ul class="tabs twelve columns">
+        <li class="two columns">
+          <a class="tab" href="#tab-prefs">Preferences</a>
+        </li>
+        <li class="two columns active">
+          <a class="tab" href="#tab-rss">RSS Feeds</a>
+        </li>
+        <li class="two columns">
+          <a class="tab" href="#tab-panel1">Panel 1</a>
+        </li>
+        <li class="two columns">
+          <a class="tab"  href="#tab-panel2">Panel 2</a>
+        </li>
+        <li class="two columns">
+          <a class="tab" href="#tab-panel3">Panel 3</a>
+        </li>
+        <li class="two columns">
+          <a class="tab" href="#tab-panel4">Panel 4</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div id="tab-prefs" class="tab-pane">
+      <div class="row">
+        <label for="tbPrimaryColor">Primary Color</label$>
+        <select ng-modal="userPrefs.primaryColor" class="u-full-width"
+          id="tbPrimaryColor">
+          <option value="blue" autofocus>Blue</option>
+          <option value="purple">Purple</option>
+          <option value="indigo">Indigo</option>
+          <option value="teal">Teal</option>
+          <option value="green">Green</option>
+          <option value="yellow">Yellow</option>
+          <option value="orange">Orange</option>
+          <option value="red">Red</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="tbSecondaryColor">Secondary Color</label>
+        <select ng-model="userPrefs.secondaryColor" class="u-full-width"
+          id="tbSecondaryColor">
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="indigo">Indigo</option>
+          <option value="teal">Teal</option>
+          <option value="green">Green</option>
+          <option value="yellow">Yellow</option>
+          <option value="orange">Orange</option>
+          <option value="red" autofocus>Red</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="tbTheme">Material Design Theme:</label>
+        <select ng-model="userPrefs.theme" class="u-full-width" id="tbTheme">
+          <option value="0">Time Controlled (Default)</option>
+          <option value="1">Light Theme</option>
+          <option value="2">Dark Theme</option>
+        </select>
+      </div>
+    </div><!-- /prefs tab -->
+    <div id="tab-rss" class="tab-pane active">
+      <div class="row">
+        <div class="four columns">
+          <label for="tbRssOneTitle">Title</label>
+          <input class="u-full-width" id="tbRssOneTitle" type="text">
+        </div>
+        <div class="eight columns">
+          <label for="tbRssOneLink">URL</label>
+          <input class="u-full-width" id="tbRssOneLink" type="text">
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <label for="tbRssTwoTitle">Title</label>
+          <input class="u-full-width" ianel3;
+        $scope.userPanel4 = userPd="tbRssTwoTitle" type="text">
+        </div>
+        <div class="eight columns">
+          <label for="tbRssTwoLink">URL</label>
+          <input class="u-full-width" id="tbRssTwoLink" type="text">
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <label for="tbRssThreeTitle">Title</label>
+          <input class="u-full-width" id="tbRssThreeTitle" type="text">
+        </div>
+        <div class="eight columns">
+          <label for="tbRssThreeLink">URL</label>
+          <input class="u-full-width" id="tbRssThreeLink" type="text">
+        </div>
+      </div>
+    </div><!-- /rss tab -->
+    <div id="tab-panel1" class="tab-pane">
+      <div class="row" ng-repeat="item in userPanel1">
+        <div class="four columns">
+          <label>Title</label>
+          <input class="u-full-width" type="text" placeholder="{{item.title}}">
+        </div>
+        <div class="eight columns">
+          <label>URL</label>
+          <input class="u-full-width" type="text" placeholder="{{item.url}}">
+        </div>
+      </div>
+    </div><!-- /panel1 tab -->
+    <div id="tab-panel2" class="tab-pane">
+      <div class="row" ng-repeat="item in userPanel2">
+        <div class="four columns">
+          <label>Title</label>
+          <input class="u-full-width" type="text" placeholder="{{item.title}}">
+        </div>
+        <div class="eight columns">
+          <label>URL</label>
+          <input class="u-full-width" type="text" placeholder="{{item.url}}">
+        </div>
+      </div>
+    </div><!-- /panel2 -->
+    <div id="tab-panel3" class="tab-pane">
+      <div class="row" ng-repeat="item in userPanel3">
+        <div class="four columns">
+          <label>Title</label>
+          <input class="u-full-width" type="text" placeholder="{{item.title}}">
+        </div>
+        <div class="eight columns">
+          <label>URL</label>
+          <input class="u-full-width" type="text" placeholder="{{item.url}}">
+        </div>
+      </div>
+    </div><!-- /panel3 tab -->
+    <div id="tab-panel4" class="tab-pane">
+      <div class="row" ng-repeat="item in userPanel4">
+        <div class="four columns">
+          <label>Title</label>
+          <input class="u-full-width" type="text" placeholder="{{item.title}}">
+        </div>
+        <div class="eight columns">
+          <label>URL</label>
+          <input class="u-full-width" type="text" placeholder="{{item.url}}">
+        </div>
+      </div>
+    </div><!-- /panel4 tab -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn" id="btn-modal-cancel">
+      Cancel
+    </button>
+    <button ng-click="savePrefs()" type="button" class="btn btn-red"
+      id="btn-modal-save">
+      Save
+    </button>
+  </div>
+</div>
+</div>
+<script src="js/jquery/jquery-2.1.4.min.js"></script>
+<script src="js/material.js"></script>
+<script src="js/rss.js"></script>
+<script src="js/storage.js"></script>
+</body>
 </html>
