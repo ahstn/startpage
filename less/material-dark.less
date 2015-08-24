@@ -301,15 +301,28 @@ input[type="text"], select, textarea {
         margin: 3em auto;
         width: 60%;
 
-        .modal-header, .modal-body, .modal-footer {
+        .modal-body, .modal-footer {
             padding: 1em;
         }
         .modal-header {
             padding-bottom: 0;
             margin-bottom: 1.5em;
-            h6 {
-                margin: 0;
-                font-weight: 600;
+            .modal-heading {
+                padding: 1rem 1.5rem 0;
+                h6 {
+                    display: inline-block;
+                    font-weight: 600;
+                    margin: 0;
+                    padding: 0;
+                }
+                a {
+                    color: @text-primary;
+                    cursor: pointer;
+                    display: inline-block;
+                    float: right;
+                    font-size: 1.5rem;
+                    padding: 0.25em 0.1em;
+                }
             }
         }
         .modal-body {
@@ -430,8 +443,6 @@ ul.tabs {
                             opacity @animate-length linear,
                             box-shadow @animate-length linear;
 }
-
-// TODO: Button click animations & Modal fade in
 
 /*******************************************************************************
  ~> Element Tweaks */

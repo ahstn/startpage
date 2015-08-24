@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Startpage">
 <head>
   <meta charset="utf-8">
   <title>AH | Startpage</title>
@@ -10,10 +10,9 @@
   <script src="js/angularjs/angular.min.js"></script>
   <script src="js/angularjs/ngStorage.min.js"></script>
 </head>
-<body ng-app="Startpage">
+<body ng-controller="MainController" ng-init="init()">
   <div class="container">
     <div class="row">
-
       <div id="clock">00:00:00</div>
     </div>
     <div class="row">
@@ -30,16 +29,14 @@
           <h6>Personal</h6>
           <a class="zmdi zmdi-more-vert" id="menu"></a>
         </div>
-        <a href="https://gmail.com">Gmail</a>
-        <a href="https://keep.google.com">Keep</a>
-        <a href="https://drive.google.com/#my-drive">Drive</a>
-        <a href="https://live.com/">Outlook</a>
+        <a ng-repeat="item in userPanel1" href="{{item.url}}">{{item.title}}</a>
       </div>
       <div class="three columns panel panel-blue">
         <div class="panel-heading">
           <h6>Boards</h6>
           <a class="zmdi zmdi-more-vert"></a>
         </div>
+        <a href=""
         <a href="https://reddit.com/r/programming">/r/Programming</a>
         <a href="https://reddit.com/r/webdev">/r/WebDev</a>
         <a href="https://boards.4chan.org/g/">/g/</a>
@@ -99,13 +96,13 @@
   </ul>
 </div><!-- /fab -->
 <!-- User Settings Modal -->
-<div ng-controller="MainController" ng-init="init()" class="modal modal-blue"
-  id="modal-settings">
+<div class="modal modal-blue" id="modal-settings">
 <div class="modal-content">
   <div class="modal-header">
     <!-- TODO: implement buttons for load and an overflow menu -->
-    <div class="row">
+    <div class="row modal-heading">
       <h6>User Settings</h6>
+      <a class="zmdi zmdi-close" id="btn-modal-cancel"></a>
     </div>
     <div class="row">
       <ul class="tabs twelve columns">
@@ -133,8 +130,8 @@
   <div class="modal-body">
     <div id="tab-prefs" class="tab-pane">
       <div class="row">
-        <label for="tbPrimaryColor">Primary Color</label$>
-        <select ng-modal="userPrefs.primaryColor" class="u-full-width"
+        <label for="tbPrimaryColor">Primary Color</label>
+        <select ng-model="userPrefs.primaryColor" class="u-full-width"
           id="tbPrimaryColor">
           <option value="blue" autofocus>Blue</option>
           <option value="purple">Purple</option>
@@ -170,35 +167,14 @@
       </div>
     </div><!-- /prefs tab -->
     <div id="tab-rss" class="tab-pane active">
-      <div class="row">
+      <div class="row" ng-repeat="item in userRss">
         <div class="four columns">
           <label for="tbRssOneTitle">Title</label>
-          <input class="u-full-width" id="tbRssOneTitle" type="text">
+          <input ng-model="item.title" class="u-full-width" type="text">
         </div>
         <div class="eight columns">
           <label for="tbRssOneLink">URL</label>
-          <input class="u-full-width" id="tbRssOneLink" type="text">
-        </div>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <label for="tbRssTwoTitle">Title</label>
-          <input class="u-full-width" ianel3;
-        $scope.userPanel4 = userPd="tbRssTwoTitle" type="text">
-        </div>
-        <div class="eight columns">
-          <label for="tbRssTwoLink">URL</label>
-          <input class="u-full-width" id="tbRssTwoLink" type="text">
-        </div>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <label for="tbRssThreeTitle">Title</label>
-          <input class="u-full-width" id="tbRssThreeTitle" type="text">
-        </div>
-        <div class="eight columns">
-          <label for="tbRssThreeLink">URL</label>
-          <input class="u-full-width" id="tbRssThreeLink" type="text">
+          <input ng-model="item.url" class="u-full-width" type="text">
         </div>
       </div>
     </div><!-- /rss tab -->
@@ -206,11 +182,11 @@
       <div class="row" ng-repeat="item in userPanel1">
         <div class="four columns">
           <label>Title</label>
-          <input class="u-full-width" type="text" placeholder="{{item.title}}">
+          <input ng-model="item.title" class="u-full-width" type="text">
         </div>
         <div class="eight columns">
           <label>URL</label>
-          <input class="u-full-width" type="text" placeholder="{{item.url}}">
+          <input ng-model="item.url" class="u-full-width" type="text">
         </div>
       </div>
     </div><!-- /panel1 tab -->
@@ -218,11 +194,11 @@
       <div class="row" ng-repeat="item in userPanel2">
         <div class="four columns">
           <label>Title</label>
-          <input class="u-full-width" type="text" placeholder="{{item.title}}">
+          <input ng-model="item.title" class="u-full-width" type="text">
         </div>
         <div class="eight columns">
           <label>URL</label>
-          <input class="u-full-width" type="text" placeholder="{{item.url}}">
+          <input ng-model="item.url" class="u-full-width" type="text">
         </div>
       </div>
     </div><!-- /panel2 -->
@@ -230,11 +206,11 @@
       <div class="row" ng-repeat="item in userPanel3">
         <div class="four columns">
           <label>Title</label>
-          <input class="u-full-width" type="text" placeholder="{{item.title}}">
+          <input ng-model="item.title" class="u-full-width" type="text">
         </div>
         <div class="eight columns">
           <label>URL</label>
-          <input class="u-full-width" type="text" placeholder="{{item.url}}">
+          <input ng-model="item.url" class="u-full-width" type="text">
         </div>
       </div>
     </div><!-- /panel3 tab -->
@@ -242,11 +218,11 @@
       <div class="row" ng-repeat="item in userPanel4">
         <div class="four columns">
           <label>Title</label>
-          <input class="u-full-width" type="text" placeholder="{{item.title}}">
+          <input ng-model="item.title" class="u-full-width" type="text">
         </div>
         <div class="eight columns">
           <label>URL</label>
-          <input class="u-full-width" type="text" placeholder="{{item.url}}">
+          <input ng-model="item.url" class="u-full-width" type="text">
         </div>
       </div>
     </div><!-- /panel4 tab -->
@@ -255,7 +231,7 @@
     <button type="button" class="btn" id="btn-modal-cancel">
       Cancel
     </button>
-    <button ng-click="savePrefs()" type="button" class="btn btn-red"
+    <button ng-click="saveAll()" type="button" class="btn btn-red"
       id="btn-modal-save">
       Save
     </button>
