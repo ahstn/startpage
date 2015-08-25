@@ -25,7 +25,7 @@ body {
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
   background-color: #424242;
-  border-radius: .2em;
+  border-radius: .25em;
 }
 .container .panel a {
   color: white;
@@ -48,6 +48,8 @@ body {
   padding: .6rem 1.15rem .35rem;
 }
 .container .panel .panel-heading {
+  border-top-left-radius: .25em;
+  border-top-right-radius: .25em;
   padding: .6rem 1.15rem .35rem;
   margin-bottom: 1rem;
 }
@@ -60,7 +62,7 @@ body {
   cursor: pointer;
   display: inline-block;
   float: right;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 0!important;
   padding: 0.25em 0.1em;
 }
@@ -73,45 +75,10 @@ body {
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
 }
-.container .panel[class*="panel-"],
-.container .panel[class^="panel-"] {
-  /* All Colored Panels */
-}
-.container .panel[class*="panel-"] > h6,
-.container .panel[class^="panel-"] > h6 {
-  /* Heading with no Menu Button */
-  -webkit-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
-  -moz-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
-  box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
-  color: white;
-  border-top-left-radius: .2em;
-  border-top-right-radius: .2em;
-}
-.container .panel[class*="panel-"] > .panel-heading,
-.container .panel[class^="panel-"] > .panel-heading {
-  /* Heading with Menu Button */
-  -webkit-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
-  -moz-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
-  box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
-  color: white;
-  border-top-left-radius: .2em;
-  border-top-right-radius: .2em;
-}
-.container .panel[class*="panel-"] > .panel-heading a,
-.container .panel[class^="panel-"] > .panel-heading a {
-  /* Menu Button */
-  color: white;
-  font-size: 1.5rem;
-}
-.container .panel-blue > h6,
-.container .panel-blue > .panel-heading {
-  background-color: #03a9f4;
-}
 .container .row {
   margin-bottom: 1rem;
 }
 .container #clock {
-  color: #03a9f4;
   font-size: 8em;
   text-align: center;
 }
@@ -147,14 +114,6 @@ body {
 }
 /*******************************************************************************
  ~ Buttons */
-.btn-fixed-bottom {
-  bottom: 2rem;
-  position: fixed;
-  right: 1.5rem;
-}
-.btn-fixed-bottom .btn-circle {
-  z-index: 998;
-}
 .btn {
   border-radius: .3em;
   border: 0;
@@ -184,34 +143,33 @@ body {
   width: inherit;
   text-align: center;
 }
-.btn[class*="btn-"],
-.btn[class^="btn-"] {
-  /* all colored buttons */
+.btn,
+.btn-circle {
   -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
   -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
   box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
   -webkit-transition: box-shadow 0.5s linear;
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
-  color: white;
 }
-.btn[class*="btn-"]:hover,
-.btn[class^="btn-"]:hover,
-.btn[class*="btn-"]:focus,
-.btn[class^="btn-"]:focus {
+.btn:hover,
+.btn-circle:hover,
+.btn:focus,
+.btn-circle:focus {
   -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
   -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
   box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
   -webkit-transition: box-shadow 0.5s linear;
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
-  color: white;
 }
-.btn-blue {
-  background-color: #03a9f4;
+.btn-fixed-bottom {
+  bottom: 2rem;
+  position: fixed;
+  right: 1.5rem;
 }
-.btn-red {
-  background-color: #ff5252;
+.btn-fixed-bottom .btn-circle {
+  z-index: 998;
 }
 /*******************************************************************************
  ~> Floating Action Buttons */
@@ -313,6 +271,8 @@ textarea {
   padding: 1em;
 }
 .modal .modal-content .modal-header {
+  border-top-left-radius: .5em;
+  border-top-right-radius: .5em;
   padding-bottom: 0;
   margin-bottom: 1.5em;
 }
@@ -326,12 +286,12 @@ textarea {
   padding: 0;
 }
 .modal .modal-content .modal-header .modal-heading a {
-  color: white;
   cursor: pointer;
   display: inline-block;
   float: right;
   font-size: 1.5rem;
   padding: 0.25em 0.1em;
+  margin: 0 0.4em;
 }
 .modal .modal-content .modal-body {
   padding: 1em 4em;
@@ -342,24 +302,17 @@ textarea {
 .modal .modal-content .modal-footer button {
   margin-bottom: 0;
 }
-.modal-blue .modal-content .modal-header {
-  background-color: #03a9f4;
-  color: white;
-}
-.modal[class*="modal-"],
-.modal[class^="modal-"] {
+.modal-header[class*="modal-"],
+.modal-header[class^="modal-"] {
   /* all colored modals */
-}
-.modal[class*="modal-"] .modal-content .modal-header,
-.modal[class^="modal-"] .modal-content .modal-header {
   -webkit-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
   -moz-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
   box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
-  border-top-left-radius: .5em;
-  border-top-right-radius: .5em;
 }
-.modal[class*="modal-"] .modal-content .modal-header h6,
-.modal[class^="modal-"] .modal-content .modal-header h6 {
+.modal-header[class*="modal-"] .modal-heading h6,
+.modal-header[class^="modal-"] .modal-heading h6,
+.modal-header[class*="modal-"] .modal-heading a,
+.modal-header[class^="modal-"] .modal-heading a {
   color: white;
 }
 .modal.in {
@@ -403,6 +356,103 @@ ul.tabs li.active {
 }
 .tab-pane.active {
   display: block;
+}
+/*******************************************************************************
+ ~> Material Design Primary and Accent Colors */
+.primary-blue {
+  background-color: #03a9f4;
+}
+.primary-purple {
+  background-color: #9c27b0;
+}
+.primary-indigo {
+  background-color: #3f51b5;
+}
+.primary-teal {
+  background-color: #009688;
+}
+.primary-green {
+  background-color: #4caf50;
+}
+.primary-yellow {
+  background-color: #ffeb3b;
+}
+.primary-orange {
+  background-color: #ff5722;
+}
+.primary-red {
+  background-color: #f44336;
+}
+.accent-blue {
+  background-color: #03a9f4;
+}
+.accent-purple {
+  background-color: #e040fb;
+}
+.accent-indigo {
+  background-color: #536dfe;
+}
+.accent-teal {
+  background-color: #009688;
+}
+.accent-green {
+  background-color: #4caf50;
+}
+.accent-yellow {
+  background-color: #ffeb3b;
+}
+.accent-orange {
+  background-color: #ff5722;
+}
+.accent-red {
+  background-color: #ff5252;
+}
+.panel-heading[class*="primary-"],
+.panel-heading[class^="primary-"] {
+  -webkit-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
+  -moz-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
+  box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
+  color: white;
+}
+.panel-heading[class*="primary-"] a,
+.panel-heading[class^="primary-"] a {
+  color: white;
+}
+.panel-heading[class*="primary-"] a:hover,
+.panel-heading[class^="primary-"] a:hover {
+  color: white;
+}
+.btn[class*="accent-"],
+.btn[class^="accent-"] {
+  color: white;
+}
+#clock[class*="accent-"],
+#clock[class^="accent-"] {
+  background-color: transparent;
+}
+#clock.accent-blue {
+  color: #03a9f4;
+}
+#clock.accent-purple {
+  color: #e040fb;
+}
+#clock.accent-indigo {
+  color: #536dfe;
+}
+#clock.accent-teal {
+  color: #009688;
+}
+#clock.accent-green {
+  color: #4caf50;
+}
+#clock.accent-yellow {
+  color: #ffeb3b;
+}
+#clock.accent-orange {
+  color: #ff5722;
+}
+#clock.accent-red {
+  color: #ff5252;
 }
 /*******************************************************************************
  ~> Mixins */

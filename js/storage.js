@@ -4,9 +4,13 @@
   * @required AngularJS (& ngStorage module)
 */
 
-var app = angular.module("Startpage", ["ngStorage"]);
+var app = angular.module("Startpage", ["ngStorage", "SettingsModel"]);
 
 app.controller("MainController", function($scope, $localStorage, SettingsModel) {
+    var colors = [
+        "blue", "red", "indigo"
+    ];
+
     // Load User Data when page is loaded
     $scope.init = function() {
         if (typeof $localStorage.userPrefs == "undefined") {
@@ -71,8 +75,8 @@ app.controller("MainController", function($scope, $localStorage, SettingsModel) 
 
 app.service('SettingsModel', function() {
     var userPrefs = {
-        primaryColor: "blue",
-        secondaryColor: "red",
+        primaryColor: "primary-blue",
+        accentColor: "accent-red",
         theme: "0" // 0 = time controlled, 1 = light theme, 2 = dark theme
     };
 
@@ -88,22 +92,22 @@ app.service('SettingsModel', function() {
         { title: 'Outlook', url: 'https://live.com/' }
     ];
     var userPanel2 = [
-        { title: 'Google', url: 'http://google.com' },
-        { title: 'Google', url: 'http://google.com' },
-        { title: 'Google', url: 'http://google.com' },
-        { title: 'Google', url: 'http://google.com' }
+        { title: '/r/Programming', url: 'https://reddit.com/r/programming' },
+        { title: '/r/WebDev', url: 'https://reddit.com/r/webdev' },
+        { title: '/g/', url: 'https://boards.4chan.org/g/' },
+        { title: '/sp/', url: 'https://boards.4chan.org/sp/' }
     ];
     var userPanel3 = [
-        { title: 'Google', url: 'http://google.com' },
-        { title: 'Google', url: 'http://google.com' },
-        { title: 'Google', url: 'http://google.com' },
-        { title: 'Google', url: 'http://google.com' }
+        { title: 'Amazon', url: 'https://www.amazon.co.uk/' },
+        { title: 'Ebay', url: 'https://www.ebay.co.uk/' },
+        { title: 'Overclockers', url: 'https://www.overclockers.co.uk/' },
+        { title: 'Google', url: 'https://store.steampowered.com' }
     ];
     var userPanel4 = [
-        { title: 'Google', url: 'http://google.com' },
-        { title: 'Google', url: 'http://google.com' },
-        { title: 'Google', url: 'http://google.com' },
-        { title: 'Google', url: 'http://google.com' }
+        { title: 'Engadget', url: 'http://www.engadget.com/uk/' },
+        { title: 'ArsTechnica', url: 'http://arstechnica.com/' },
+        { title: 'HowToGeek', url: 'http://www.howtogeek.com/' },
+        { title: 'Guardian', url: 'http://www.theguardian.com/uk' }
     ];
 
     this.userPrefs = userPrefs;

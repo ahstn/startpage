@@ -13,64 +13,68 @@
 <body ng-controller="MainController" ng-init="init()">
   <div class="container">
     <div class="row">
-      <div id="clock">00:00:00</div>
+      <div id="clock" ng-class="userPrefs.accentColor">00:00:00</div>
     </div>
     <div class="row">
       <div class="twelve columns panel panel-blue" id="search">
-        <form action="https://www.google.com/search">
-          <input class="u-full-width"
-          type="Text" name="search" placeholder="Google"\>
+        <!-- TODO: Fix Google Search and add more search engines -->
+        <form action="https://www.google.com/search/#q=">
+          <input class="u-full-width" type="Text" name="search"
+            placeholder="Google"\>
         </form>
       </div>
     </div>
     <div class="row">
-      <div class="three columns panel panel-blue">
-        <div class="panel-heading">
+      <div class="three columns panel">
+        <div class="panel-heading" ng-class="userPrefs.primaryColor">
           <h6>Personal</h6>
-          <a class="zmdi zmdi-more-vert" id="menu"></a>
+          <a class="zmdi zmdi-more-vert" href="#tab-panel1"></a>
         </div>
         <a ng-repeat="item in userPanel1" href="{{item.url}}">{{item.title}}</a>
       </div>
-      <div class="three columns panel panel-blue">
-        <div class="panel-heading">
+      <div class="three columns panel">
+        <div class="panel-heading" ng-class="userPrefs.primaryColor">
           <h6>Boards</h6>
-          <a class="zmdi zmdi-more-vert"></a>
+          <a class="zmdi zmdi-more-vert" href="#tab-panel2"></a>
         </div>
-        <a href=""
-        <a href="https://reddit.com/r/programming">/r/Programming</a>
-        <a href="https://reddit.com/r/webdev">/r/WebDev</a>
-        <a href="https://boards.4chan.org/g/">/g/</a>
-        <a href="https://boards.4chan.org/sp/">/sp/</a>
+        <a ng-repeat="item in userPanel2" href="{{item.url}}">{{item.title}}</a>
       </div>
-      <div class="three columns panel panel-blue">
-        <h6>Shopping</h6>
-        <a href="https://www.amazon.co.uk/">Amazon</a>
-        <a href="https://www.ebay.co.uk/">Ebay</a>
-        <a href="https://www.overclockers.co.uk/">Overclockers</a>
-        <a href="https://store.steampowered.com">Steam</a>
+      <div class="three columns panel">
+        <div class="panel-heading" ng-class="userPrefs.primaryColor">
+          <h6>Shopping</h6>
+        </div>
+        <a ng-repeat="item in userPanel3" href="{{item.url}}">{{item.title}}</a>
       </div>
-      <div class="three columns panel panel-blue">
-        <h6>News</h6>
-        <a href="http://www.engadget.com/uk/">Engadget</a>
-        <a href="http://arstechnica.com/">Ars Technica</a>
-        <a href="http://www.howtogeek.com/">HowToGeek</a>
-        <a href="http://www.theguardian.com/uk">Guardian</a>
+      <div class="three columns panel">
+        <div class="panel-heading" ng-class="userPrefs.primaryColor">
+          <h6>News</h6>
+        </div>
+        <a ng-repeat="item in userPanel4" href="{{item.url}}">{{item.title}}</a>
       </div>
     </div>
     <div class="row" id="rssFeeds">
-      <div class="four columns panel panel-blue" id="rssOne">
-        <h6>BBC News</h6>
+      <!-- TODO: RSS feeds using AngularJS -->
+      <div class="four columns panel" ng-class="userPrefs.primaryColor" id="rssOne">
+        <div class="panel-heading" ng-class="userPrefs.primaryColor">
+          <h6>BBC News</h6>
+        </div>
       </div>
-      <div class="four columns panel panel-blue" id="rssTwo">
-        <h6>BBC Technology</h6>
+      <div class="four columns panel" ng-class="userPrefs.primaryColor" id="rssTwo">
+        <div class="panel-heading" ng-class="userPrefs.primaryColor">
+          <h6>BBC Technology</h6>
+        </div>
       </div>
-      <div class="four columns panel panel-blue" id="rssThree">
-        <h6>Sky Sports</h6>
+      <div class="four columns panel"  ng-class="userPrefs.primaryColor"id="rssThree">
+        <div class="panel-heading" ng-class="userPrefs.primaryColor">
+          <h6>Sky Sports</h6>
+        </div>
       </div>
     </div>
     <div class="row">
-      <div class="twelve columns panel panel-blue">
-        <h6>Weather</h6>
+      <div class="twelve columns panel" ng-class="userPrefs.primaryColor">
+        <div class="panel-heading" ng-class="userPrefs.primaryColor">
+          <h6>Weather</h6>
+        </div>
         <!--
         TODO: Decide if Weather should be added
         if so, implement it in rss.js
@@ -78,31 +82,37 @@
     </div>
   </div>
 </div><!-- /container -->
+
+<!-- Floating Action Button -->
 <div class="fab btn-fixed-bottom" id="fab">
-  <a class="btn-fixed-bottom btn-circle btn-red">
+  <a class="btn-fixed-bottom btn-circle" ng-class="userPrefs.accentColor">
     <i class="zmdi zmdi-edit"></i>
   </a>
   <ul>
     <li>
-      <a class="btn-circle btn-blue" data-tooltip="Github">
+      <a class="btn-circle" ng-class="userPrefs.primaryColor"
+        href="http://github.com/phazyy/Startpage" data-tooltip="Github">
         <i class="zmdi zmdi-github"></i>
       </a>
     </li>
     <li>
-      <a class="btn-circle btn-blue" data-tooltip="Visuals">
+      <a class="btn-circle" ng-class="userPrefs.primaryColor"
+        href="#tab-prefs" data-tooltip="Visuals">
         <i class="zmdi zmdi-eye"></i>
       </a>
     </li>
   </ul>
 </div><!-- /fab -->
+
 <!-- User Settings Modal -->
-<div class="modal modal-blue" id="modal-settings">
+<div class="modal" id="modal-settings">
 <div class="modal-content">
-  <div class="modal-header">
+  <div class="modal-header" ng-class="userPrefs.primaryColor">
     <!-- TODO: implement buttons for load and an overflow menu -->
     <div class="row modal-heading">
       <h6>User Settings</h6>
-      <a class="zmdi zmdi-close" id="btn-modal-cancel"></a>
+      <a ng-click="loadAll()" class="zmdi zmdi-close" id="btn-modal-cancel"></a>
+      <a class="zmdi zmdi-refresh-sync"></a>
     </div>
     <div class="row">
       <ul class="tabs twelve columns">
@@ -133,28 +143,28 @@
         <label for="tbPrimaryColor">Primary Color</label>
         <select ng-model="userPrefs.primaryColor" class="u-full-width"
           id="tbPrimaryColor">
-          <option value="blue" autofocus>Blue</option>
-          <option value="purple">Purple</option>
-          <option value="indigo">Indigo</option>
-          <option value="teal">Teal</option>
-          <option value="green">Green</option>
-          <option value="yellow">Yellow</option>
-          <option value="orange">Orange</option>
-          <option value="red">Red</option>
+          <option value="primary-blue" autofocus>Blue</option>
+          <option value="primary-purple">Purple</option>
+          <option value="primary-indigo">Indigo</option>
+          <option value="primary-teal">Teal</option>
+          <option value="primary-green">Green</option>
+          <option value="primary-yellow">Yellow</option>
+          <option value="primary-orange">Orange</option>
+          <option value="primary-red">Red</option>
         </select>
       </div>
       <div class="row">
         <label for="tbSecondaryColor">Secondary Color</label>
-        <select ng-model="userPrefs.secondaryColor" class="u-full-width"
+        <select ng-model="userPrefs.accentColor" class="u-full-width"
           id="tbSecondaryColor">
-          <option value="blue">Blue</option>
-          <option value="purple">Purple</option>
-          <option value="indigo">Indigo</option>
-          <option value="teal">Teal</option>
-          <option value="green">Green</option>
-          <option value="yellow">Yellow</option>
-          <option value="orange">Orange</option>
-          <option value="red" autofocus>Red</option>
+          <option value="accent-blue">Blue</option>
+          <option value="accent-purple">Purple</option>
+          <option value="accent-indigo">Indigo</option>
+          <option value="accent-teal">Teal</option>
+          <option value="accent-green">Green</option>
+          <option value="accent-yellow">Yellow</option>
+          <option value="accent-orange">Orange</option>
+          <option value="accent-red" autofocus>Red</option>
         </select>
       </div>
       <div class="row">
@@ -231,8 +241,8 @@
     <button type="button" class="btn" id="btn-modal-cancel">
       Cancel
     </button>
-    <button ng-click="saveAll()" type="button" class="btn btn-red"
-      id="btn-modal-save">
+    <button ng-click="saveAll()" ng-class="userPrefs.accentColor" type="button"
+      class="btn" id="btn-modal-save">
       Save
     </button>
   </div>
@@ -242,5 +252,6 @@
 <script src="js/material.js"></script>
 <script src="js/rss.js"></script>
 <script src="js/storage.js"></script>
+<script src="js/storageModel.js"></script>
 </body>
 </html>

@@ -16,6 +16,24 @@
 @secondary: #ff5252;
 @secondary-darker: darken(@secondary, 20%);
 
+@primary-blue:      #03A9F4;
+@primary-purple:    #9C27B0;
+@primary-indigo:    #3F51B5;
+@primary-teal:      #009688;
+@primary-green:     #4CAF50;
+@primary-yellow:    #FFEB3B;
+@primary-orange:    #FF5722;
+@primary-red:       #F44336;
+
+@accent-blue:       #03A9F4;
+@accent-purple:     #E040FB;
+@accent-indigo:     #536DFE;
+@accent-teal:       #009688;
+@accent-green:      #4CAF50;
+@accent-yellow:     #FFEB3B;
+@accent-orange:     #FF5722;
+@accent-red:        #FF5252;
+
 @divider: #B6B6B6;
 
 @panel-bg: #424242;
@@ -42,7 +60,7 @@
         .shadow();
         .shadow-animate-shorter();
         background-color: @panel-bg;
-        border-radius: .2em;
+        border-radius: .25em;
 
         a {
             color: @text-primary;
@@ -65,6 +83,8 @@
             padding: .6rem 1.15rem .35rem;
         }
         .panel-heading {
+            border-top-left-radius: .25em;
+            border-top-right-radius: .25em;
             padding: .6rem 1.15rem .35rem;
             margin-bottom: 1rem;
             h6 {
@@ -76,7 +96,7 @@
                 cursor: pointer;
                 display: inline-block;
                 float: right;
-                font-size: 1rem;
+                font-size: 1.5rem;
                 margin: 0!important;
                 padding: 0.25em 0.1em;
             }
@@ -86,37 +106,12 @@
         .shadow-darker();
         .shadow-animate-shorter();
     }
-    .panel[class*="panel-"],
-    .panel[class^="panel-"] { /* All Colored Panels */
-        > h6 { /* Heading with no Menu Button */
-            .inset-shadow();
-            color: @text-secondary;
-            border-top-left-radius: .2em;
-            border-top-right-radius: .2em;
-        }
-        > .panel-heading { /* Heading with Menu Button */
-            .inset-shadow();
-            color: @text-secondary;
-            border-top-left-radius: .2em;
-            border-top-right-radius: .2em;
-        }
-        > .panel-heading a { /* Menu Button */
-            color: @text-secondary;
-            font-size: 1.5rem;
-        }
-    }
-    .panel-blue {
-        > h6, > .panel-heading {
-            background-color: @primary;
-        }
-    }
 
     .row {
         margin-bottom: 1rem;
     }
 
     #clock {
-        color: @primary;
         font-size: 8em;
         text-align: center;
 
@@ -150,15 +145,6 @@
 
 /*******************************************************************************
  ~ Buttons */
-.btn-fixed-bottom {
-    bottom: 2rem;
-    position: fixed;
-    right: 1.5rem;
-
-    .btn-circle {
-        z-index: 998;
-    }
-}
 
 .btn {
     border-radius: .3em;
@@ -187,26 +173,26 @@
         text-align: center;
     }
 }
-
-.btn[class*="btn-"],
-.btn[class^="btn-"] { /* all colored buttons */
+// TODO: better animations when clicking and hovering buttons
+.btn, .btn-circle {
     .shadow();
     .shadow-animate-shorter();
-    color: @text-secondary;
 
     &:hover, &:focus {
         .shadow-darker();
         .shadow-animate-shorter();
-        color: @text-secondary;
     }
 }
-.btn-blue {
-    background-color: @primary;
-}
-.btn-red {
-    background-color: @secondary;
-}
 
+.btn-fixed-bottom {
+    bottom: 2rem;
+    position: fixed;
+    right: 1.5rem;
+
+    .btn-circle {
+        z-index: 998;
+    }
+}
 /*******************************************************************************
  ~> Floating Action Buttons */
 .fab {
@@ -268,6 +254,7 @@
 
 /*******************************************************************************
  ~> Inputs */
+ // TODO: Material style inputs (textboxes, dropdowns, etc)
 form {
     .row {
         margin-bottom: 1.6rem;
@@ -305,6 +292,8 @@ input[type="text"], select, textarea {
             padding: 1em;
         }
         .modal-header {
+            border-top-left-radius: .5em;
+            border-top-right-radius: .5em;
             padding-bottom: 0;
             margin-bottom: 1.5em;
             .modal-heading {
@@ -316,12 +305,12 @@ input[type="text"], select, textarea {
                     padding: 0;
                 }
                 a {
-                    color: @text-primary;
                     cursor: pointer;
                     display: inline-block;
                     float: right;
                     font-size: 1.5rem;
                     padding: 0.25em 0.1em;
+                    margin: 0 0.4em;
                 }
             }
         }
@@ -336,24 +325,13 @@ input[type="text"], select, textarea {
         }
     }
 }
-.modal-blue {
-    .modal-content {
-        .modal-header {
-            background-color: @primary;
-            color: @text-primary;
-        }
-    }
-}
-.modal[class*="modal-"],
-.modal[class^="modal-"] { /* all colored modals */
-    .modal-content {
-        .modal-header {
-            .inset-shadow();
-            border-top-left-radius: .5em;
-            border-top-right-radius: .5em;
-            h6 {
-                color: @text-secondary;
-            }
+
+.modal-header[class*="modal-"],
+.modal-header[class^="modal-"] { /* all colored modals */
+    .inset-shadow();
+    .modal-heading {
+        h6, a {
+            color: @text-secondary;
         }
     }
 }
@@ -403,6 +381,56 @@ ul.tabs {
 }
 
 /*******************************************************************************
+ ~> Material Design Primary and Accent Colors */
+.primary-blue     { background-color: @primary-blue;   }
+.primary-purple   { background-color: @primary-purple; }
+.primary-indigo   { background-color: @primary-indigo; }
+.primary-teal     { background-color: @primary-teal;   }
+.primary-green    { background-color: @primary-green;  }
+.primary-yellow   { background-color: @primary-yellow; }
+.primary-orange   { background-color: @primary-orange; }
+.primary-red      { background-color: @primary-red;    }
+
+.accent-blue      { background-color: @accent-blue;    }
+.accent-purple    { background-color: @accent-purple;  }
+.accent-indigo    { background-color: @accent-indigo;  }
+.accent-teal      { background-color: @accent-teal;    }
+.accent-green     { background-color: @accent-green;   }
+.accent-yellow    { background-color: @accent-yellow;  }
+.accent-orange    { background-color: @accent-orange;  }
+.accent-red       { background-color: @accent-red;     }
+
+.panel-heading[class*="primary-"],
+.panel-heading[class^="primary-"] {
+    .inset-shadow();
+    color: @text-secondary;
+    a {
+        color: @text-secondary;
+    }
+    a:hover {
+        color: @text-secondary;
+    }
+}
+
+.btn[class*="accent-"],
+.btn[class^="accent-"] {
+    color: @text-secondary;
+}
+
+#clock[class*="accent-"],
+#clock[class^="accent-"] {
+    background-color: transparent;
+}
+#clock.accent-blue   { color: @accent-blue;   }
+#clock.accent-purple { color: @accent-purple; }
+#clock.accent-indigo { color: @accent-indigo; }
+#clock.accent-teal   { color: @accent-teal;   }
+#clock.accent-green  { color: @accent-green;  }
+#clock.accent-yellow { color: @accent-yellow; }
+#clock.accent-orange { color: @accent-orange; }
+#clock.accent-red    { color: @accent-red;    }
+
+/*******************************************************************************
  ~> Mixins */
 .shadow (@shadow-color: rgba(50, 50, 50, .45)) {
     -webkit-box-shadow: 0px 3px 3px 0px @shadow-color;
@@ -443,6 +471,8 @@ ul.tabs {
                             opacity @animate-length linear,
                             box-shadow @animate-length linear;
 }
+
+// TODO: Button click animations & Modal fade in
 
 /*******************************************************************************
  ~> Element Tweaks */
