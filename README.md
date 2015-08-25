@@ -8,13 +8,15 @@ A minimal, Material Design inspired browser home/new tab page designed to act as
 
 **Features**
 * Night and Day Material Design themes, which switch automatically (between 5PM and 6AM)
-* Panels for user links and RSS feeds (customization coming soon™)
-* Easy access search engine input (customization coming soon™)
 * Floating Action Button which provides access to options and a settings menu
+* Settings panel for personalisation, which is saves to HTML5 browser local storage
+* User customisable links, RSS feeds and color palette (Theme customisation and search engine - WIP)
 
-**Resources Used**
+**Frameworks/Libraries Used**
 * Skeleton - [GitHub Repo](https://github.com/dhg/Skeleton)
+* Angular.js - [GitHub Repo](https://github.com/angular/angular.js)
+* ngStorage - [GitHub Repo](https://github.com/gsklee/ngStorage)
 
 ## Preview
-Current build (12/08/15):
+Old build (12/08/15):
 ![Startpage](preview.png)
