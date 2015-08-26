@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html ng-app="Startpage">
+<html ng-app="Startpage" ng-controller="MainController" ng-init="init()">
 <head>
   <meta charset="utf-8">
   <title>AH | Startpage</title>
   <link rel="stylesheet" href="css/Skeleton/normalize.css">
   <link rel="stylesheet" href="css/Skeleton/skeleton.css">
   <link rel="stylesheet" href="css/material-font.min.css">
-  <link rel="stylesheet" href="css/material.css" id="materialcss">
+  <link rel="stylesheet" href="{{ theme }}" id="materialcss">
   <script src="js/angularjs/angular.min.js"></script>
   <script src="js/angularjs/ngStorage.min.js"></script>
 </head>
-<body ng-controller="MainController" ng-init="init()">
+<body>
   <div class="container">
     <div class="row">
-      <div id="clock" ng-class="userPrefs.accentColor">00:00:00</div>
+      <div id="clock" ng-class="userPrefs.accentColor">
+        {{ date | date:'HH:mm:ss' }}
+      </div>
     </div>
     <div class="row">
       <div class="twelve columns panel panel-blue" id="search">

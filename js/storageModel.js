@@ -11,7 +11,7 @@ angular.module('SettingsModel', [])
     var userPrefs = {
         primaryColor: "primary-blue",
         accentColor: "accent-red",
-        theme: "0" // 0 = time controlled, 1 = light theme, 2 = dark theme
+        theme: 0 // 0 = time controlled, 1 = light theme, 2 = dark theme
     };
 
     var userRss = [

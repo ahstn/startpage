@@ -1,15 +1,14 @@
 /**
   * @desc Stores user settings using HTML5 localStorage
   * @author Adam Houston
-  * @required AngularJS (& ngStorage module)
+  * @required AngularJS (ngStorage module & SettingsModel (storageModel.js))
 */
 
 var app = angular.module("Startpage", ["ngStorage", "SettingsModel"]);
 
-app.controller("MainController", function($scope, $localStorage, SettingsModel) {
-    var colors = [
-        "blue", "red", "indigo"
-    ];
+app.controller("MainController", function($scope, $localStorage, $interval, SettingsModel) {
+    $scope.date = new Date();
+    $scope.theme = '';
 
     // Load User Data when page is loaded
     $scope.init = function() {
@@ -21,17 +20,41 @@ app.controller("MainController", function($scope, $localStorage, SettingsModel) 
             $scope.userPanel2 = SettingsModel.userPanel2;
             $scope.userPanel3 = SettingsModel.userPanel3;
             $scope.userPanel4 = SettingsModel.userPanel4;
+            $scope.stylesheet();
         }
         else {
             console.log('Local stoage found | Loading local storage');
             $scope.loadAll();
+            $scope.stylesheet();
         }
     };
 
-    $scope.saveAll = function () {
+    $scope.stylesheet = function() {
+        var hour = $scope.date.getHours();
+        if ($scope.userPrefs.theme == '0' && (hour >= 17 || hour <= 6 )) {
+            $scope.theme = 'css/material-dark.css';
+        }
+        else if ($scope.userPrefs.theme == '0') {
+            $scope.theme = 'css/material.css';
+        }
+        else if ($scope.userPrefs.theme == '1') {
+            $scope.theme = 'css/material.css';
+        }
+        else if ($scope.userPrefs.theme == '2') {
+            $scope.theme = 'css/material-dark.css';
+        }
+    };
+    // Refresh the date and stylesheet every 1000ms (1 second)
+    $interval(function () {
+        $scope.date = new Date();
+        $scope.stylesheet();
+    }.bind(this), 1000);
+
+    $scope.saveAll = function() {
         $scope.saveRss();
         $scope.savePrefs();
         $scope.savePanels();
+        $scope.stylesheet();
     };
 
     $scope.loadAll = function() {
@@ -71,49 +94,4 @@ app.controller("MainController", function($scope, $localStorage, SettingsModel) 
         $scope.userPanel4 = $localStorage.userPanel4;
     };
 
-});
-
-app.service('SettingsModel', function() {
-    var userPrefs = {
-        primaryColor: "primary-blue",
-        accentColor: "accent-red",
-        theme: "0" // 0 = time controlled, 1 = light theme, 2 = dark theme
-    };
-
-    var userRss = [
-        { title: 'BBC News', url: 'http://feeds.bbci.co.uk/news/england/rss.xml'},
-        { title: 'BBC Tech', url: 'http://feeds.bbci.co.uk/news/technology/rss.xml'},
-        { title: 'Sky Sports', url: 'http://skysports.com/rss/0,20514,11661,00.xml'}
-    ];
-    var userPanel1 = [
-        { title: 'Gmail', url: 'https://mail.google.com' },
-        { title: 'Keep', url: 'https://keep.google.com' },
-        { title: 'Drive', url: 'https://drive.google.com/#my-drive' },
-        { title: 'Outlook', url: 'https://live.com/' }
-    ];
-    var userPanel2 = [
-        { title: '/r/Programming', url: 'https://reddit.com/r/programming' },
-        { title: '/r/WebDev', url: 'https://reddit.com/r/webdev' },
-        { title: '/g/', url: 'https://boards.4chan.org/g/' },
-        { title: '/sp/', url: 'https://boards.4chan.org/sp/' }
-    ];
-    var userPanel3 = [
-        { title: 'Amazon', url: 'https://www.amazon.co.uk/' },
-        { title: 'Ebay', url: 'https://www.ebay.co.uk/' },
-        { title: 'Overclockers', url: 'https://www.overclockers.co.uk/' },
-        { title: 'Google', url: 'https://store.steampowered.com' }
-    ];
-    var userPanel4 = [
-        { title: 'Engadget', url: 'http://www.engadget.com/uk/' },
-        { title: 'ArsTechnica', url: 'http://arstechnica.com/' },
-        { title: 'HowToGeek', url: 'http://www.howtogeek.com/' },
-        { title: 'Guardian', url: 'http://www.theguardian.com/uk' }
-    ];
-
-    this.userPrefs = userPrefs;
-    this.userRss = userRss;
-    this.userPanel1 = userPanel1;
-    this.userPanel2 = userPanel2;
-    this.userPanel3 = userPanel3;
-    this.userPanel4 = userPanel4;
 });
