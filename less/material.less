@@ -7,7 +7,8 @@
 /*******************************************************************************
  ~> Variables */
 @text-primary:      #212121;
-@text-primary-lighter: lighten(@text-primary, 20%);
+@text-primary-lighter:     lighten(@text-primary, 20%);
+@text-primary-lightest:    lighten(@text-primary, 60%);
 @text-secondary:    white;
 
 @primary-darker:    darken(@primary, 20%);
@@ -33,6 +34,14 @@
 @accent-yellow:     #FFEB3B;
 @accent-orange:     #FF5722;
 @accent-red:        #FF5252;
+@accent-blue-light:    lighten(@accent-blue, 3%);
+@accent-purple-light:  lighten(@accent-purple, 3%);
+@accent-indigo-light:  lighten(@accent-indigo, 3%);
+@accent-teal-light:    lighten(@accent-teal, 3%);
+@accent-green-light:   lighten(@accent-green, 3%);
+@accent-yellow-light:  lighten(@accent-yellow, 3%);
+@accent-orange-light:  lighten(@accent-orange, 3%);
+@accent-red-light:     lighten(@accent-red, 3%);
 
 @divider:           #B6B6B6;
 
@@ -120,7 +129,7 @@
         }
     }
     #search {
-        padding: 0!important;
+        padding: 0 1em;
 
         input {
             font-size: 1.4em;
@@ -193,6 +202,55 @@
         z-index: 998;
     }
 }
+
+/*******************************************************************************
+ ~> Inputs */
+ // TODO: Material style inputs (textboxes, dropdowns, etc)
+form {
+    .row {
+        margin-bottom: 1.6rem;
+    }
+    .row:last-of-type {
+        margin-bottom: 0;
+    }
+}
+input[type="text"], select, textarea {
+    background-color: @panel-bg;
+    border: 0;
+    border-bottom: 1px solid @text-primary-lightest;
+    border-radius: 0;
+    color: @text-primary;
+    padding: 0;
+
+    &:focus {
+        border: 0;
+    }
+}
+input[type="text"].primary-blue, select.primary-blue, textarea.primary-blue {
+    &:focus { border-bottom: 1px solid @primary-blue; }
+}
+input[type="text"].primary-purple, select.primary-purple, textarea.primary-purple {
+    &:focus { border-bottom: 1px solid @primary-purple; }
+}
+input[type="text"].primary-indigo, select.primary-indigo, textarea.primary-indigo {
+    &:focus { border-bottom: 1px solid @primary-indigo; }
+}
+input[type="text"].primary-teal, select.primary-teal, textarea.primary-teal {
+    &:focus { border-bottom: 1px solid @primary-teal; }
+}
+input[type="text"].primary-green, select.primary-green, textarea.primary-green {
+    &:focus { border-bottom: 1px solid @primary-green; }
+}
+input[type="text"].primary-yellow, select.primary-yellow, textarea.primary-yellow {
+    &:focus { border-bottom: 1px solid @primary-yellow; }
+}
+input[type="text"].primary-orange, select.primary-orange, textarea.primary-orange {
+    &:focus { border-bottom: 1px solid @primary-orange; }
+}
+input[type="text"].primary-red, select.primary-red, textarea.primary-red {
+    &:focus { border-bottom: 1px solid @primary-red; }
+}
+
 /*******************************************************************************
  ~> Floating Action Buttons */
 .fab {
@@ -235,7 +293,7 @@
     .btn-circle {
         .transform-animate();
         opacity: 1;
-        transform: scale(1) translateY(0);
+        transform: scale(1);
     }
 
     .btn-circle:after {         // Tooltip
@@ -253,35 +311,18 @@
 }
 
 /*******************************************************************************
- ~> Inputs */
- // TODO: Material style inputs (textboxes, dropdowns, etc)
-form {
-    .row {
-        margin-bottom: 1.6rem;
-    }
-    .row:last-of-type {
-        margin-bottom: 0;
-    }
-}
-input[type="text"], select, textarea {
-    background-color: @panel-bg;
-    color: @text-primary;
-}
-
-/*******************************************************************************
  ~> Modal */
 .modal {
     background-color: rgba(0, 0, 0, .5);
-    display: none;
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
+    display: none;
 
     .modal-content {
         .shadow();
-        .shadow-animate-shorter();
         background-color: @panel-bg;
         border-radius: .5em;
         display: block;
@@ -335,8 +376,20 @@ input[type="text"], select, textarea {
         }
     }
 }
-.modal.in {
+.modal-active {
+    .keyframes-animation(kf-modal-animate-in 0.25s);
     display: block;
+    opacity: 1;
+    .modal-content {
+        //.keyframes-animation(kf-modal-content-animate-in 0.8s);
+    }
+}
+
+.modal-inactive {
+    .keyframes-animation(kf-modal-animate-out 0.25s);
+    .modal-content {
+        //.keyframes-animation(kf-modal-content-animate-out 0.8s)
+    }
 }
 
 /*******************************************************************************
@@ -399,6 +452,14 @@ ul.tabs {
 .accent-yellow    { background-color: @accent-yellow;  }
 .accent-orange    { background-color: @accent-orange;  }
 .accent-red       { background-color: @accent-red;     }
+.accent-blue:hover   { background-color: @accent-blue-light;   }
+.accent-purple:hover { background-color: @accent-purple-light; }
+.accent-indigo:hover { background-color: @accent-indigo-light; }
+.accent-teal:hover   { background-color: @accent-teal-light;   }
+.accent-green:hover  { background-color: @accent-green-light;  }
+.accent-yellow:hover { background-color: @accent-yellow-light; }
+.accent-orange:hover { background-color: @accent-orange-light; }
+.accent-red:hover    { background-color: @accent-red-light;    }
 
 .panel-heading[class*="primary-"],
 .panel-heading[class^="primary-"] {
@@ -465,7 +526,47 @@ ul.tabs {
                             box-shadow @animate-length linear;
 }
 
-// TODO: Button click animations & Modal fade in
+.keyframes-animation(@animation) {
+    -webkit-animation: @animation;
+       -moz-animation: @animation;
+            animation: @animation;
+}
+
+.modal-animate-in() {
+    0% { display: none; opacity: 0; }
+    1% { display: block; }
+    100% { opacity: 1; }
+}
+.modal-animate-out() {
+    0% { display: block; opacity: 1; }
+    99% {opacity: 0; }
+    100% { display: none; }
+}
+.modal-content-animate-in() {
+    1% { opacity: 0.5; transform: scale(0.6) translateY(-20px); }
+    100%   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-content-animate-out() {
+    1% { opacity: 1; transform: scale(1) translateY(0); }
+    100%   { opacity: 0.5; transform: scale(0.6) translateY(-20px); }
+}
+// TODO: Button click animations
+
+/*******************************************************************************
+ ~> Keyframes */
+@-webkit-keyframes kf-modal-animate-in  { .modal-animate-in; }
+   @-moz-keyframes kf-modal-animate-in  { .modal-animate-in; }
+        @keyframes kf-modal-animate-in  { .modal-animate-in; }
+@-webkit-keyframes kf-modal-animate-out { .modal-animate-out; }
+   @-moz-keyframes kf-modal-animate-out { .modal-animate-out; }
+        @keyframes kf-modal-animate-out { .modal-animate-out; }
+@-webkit-keyframes kf-modal-content-animate-in  { .modal-content-animate-in; }
+   @-moz-keyframes kf-modal-content-animate-in  { .modal-content-animate-in; }
+        @keyframes kf-modal-content-animate-in  { .modal-content-animate-in; }
+@-webkit-keyframes kf-modal-content-animate-out { .modal-content-animate-out; }
+   @-moz-keyframes kf-modal-content-animate-out { .modal-content-animate-out; }
+        @keyframes kf-modal-content-animate-out { .modal-content-animate-out; }
+
 
 /*******************************************************************************
  ~> Element Tweaks */

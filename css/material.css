@@ -88,7 +88,7 @@ body {
   }
 }
 .container #search {
-  padding: 0!important;
+  padding: 0 1em;
 }
 .container #search input {
   font-size: 1.4em;
@@ -172,6 +172,69 @@ body {
   z-index: 998;
 }
 /*******************************************************************************
+ ~> Inputs */
+form .row {
+  margin-bottom: 1.6rem;
+}
+form .row:last-of-type {
+  margin-bottom: 0;
+}
+input[type="text"],
+select,
+textarea {
+  background-color: #fafafa;
+  border: 0;
+  border-bottom: 1px solid #bababa;
+  border-radius: 0;
+  color: #212121;
+  padding: 0;
+}
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border: 0;
+}
+input[type="text"].primary-blue:focus,
+select.primary-blue:focus,
+textarea.primary-blue:focus {
+  border-bottom: 1px solid #03a9f4;
+}
+input[type="text"].primary-purple:focus,
+select.primary-purple:focus,
+textarea.primary-purple:focus {
+  border-bottom: 1px solid #9c27b0;
+}
+input[type="text"].primary-indigo:focus,
+select.primary-indigo:focus,
+textarea.primary-indigo:focus {
+  border-bottom: 1px solid #3f51b5;
+}
+input[type="text"].primary-teal:focus,
+select.primary-teal:focus,
+textarea.primary-teal:focus {
+  border-bottom: 1px solid #009688;
+}
+input[type="text"].primary-green:focus,
+select.primary-green:focus,
+textarea.primary-green:focus {
+  border-bottom: 1px solid #4caf50;
+}
+input[type="text"].primary-yellow:focus,
+select.primary-yellow:focus,
+textarea.primary-yellow:focus {
+  border-bottom: 1px solid #ffeb3b;
+}
+input[type="text"].primary-orange:focus,
+select.primary-orange:focus,
+textarea.primary-orange:focus {
+  border-bottom: 1px solid #ff5722;
+}
+input[type="text"].primary-red:focus,
+select.primary-red:focus,
+textarea.primary-red:focus {
+  border-bottom: 1px solid #f44336;
+}
+/*******************************************************************************
  ~> Floating Action Buttons */
 .fab ul {
   bottom: 4.5em;
@@ -215,7 +278,7 @@ body {
   -moz-transition: -moz-transform 0.2s linear, opacity 0.2s linear, box-shadow 0.2s linear;
   transition: transform 0.2s linear, opacity 0.2s linear, box-shadow 0.2s linear;
   opacity: 1;
-  transform: scale(1) translateY(0);
+  transform: scale(1);
 }
 .fab-active ul li .btn-circle:after {
   background: rgba(0, 0, 0, 0.8);
@@ -229,37 +292,20 @@ body {
   z-index: 98;
 }
 /*******************************************************************************
- ~> Inputs */
-form .row {
-  margin-bottom: 1.6rem;
-}
-form .row:last-of-type {
-  margin-bottom: 0;
-}
-input[type="text"],
-select,
-textarea {
-  background-color: #fafafa;
-  color: #212121;
-}
-/*******************************************************************************
  ~> Modal */
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+  display: none;
 }
 .modal .modal-content {
   -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
   -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
   box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -webkit-transition: box-shadow 0.5s linear;
-  -moz-transition: box-shadow 0.5s linear;
-  transition: box-shadow 0.5s linear;
   background-color: #fafafa;
   border-radius: .5em;
   display: block;
@@ -315,8 +361,17 @@ textarea {
 .modal-header[class^="modal-"] .modal-heading a {
   color: white;
 }
-.modal.in {
+.modal-active {
+  -webkit-animation: kf-modal-animate-in 0.25s;
+  -moz-animation: kf-modal-animate-in 0.25s;
+  animation: kf-modal-animate-in 0.25s;
   display: block;
+  opacity: 1;
+}
+.modal-inactive {
+  -webkit-animation: kf-modal-animate-out 0.25s;
+  -moz-animation: kf-modal-animate-out 0.25s;
+  animation: kf-modal-animate-out 0.25s;
 }
 /*******************************************************************************
  ~> Tabs */
@@ -407,6 +462,30 @@ ul.tabs li.active {
 .accent-red {
   background-color: #ff5252;
 }
+.accent-blue:hover {
+  background-color: #0ab1fc;
+}
+.accent-purple:hover {
+  background-color: #e24ffb;
+}
+.accent-indigo:hover {
+  background-color: #627afe;
+}
+.accent-teal:hover {
+  background-color: #00a596;
+}
+.accent-green:hover {
+  background-color: #55b559;
+}
+.accent-yellow:hover {
+  background-color: #ffed4a;
+}
+.accent-orange:hover {
+  background-color: #ff6331;
+}
+.accent-red:hover {
+  background-color: #ff6161;
+}
 .panel-heading[class*="primary-"],
 .panel-heading[class^="primary-"] {
   -webkit-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
@@ -433,6 +512,140 @@ ul.tabs li.active {
 }
 /*******************************************************************************
  ~> Mixins */
+/*******************************************************************************
+ ~> Keyframes */
+@-webkit-keyframes kf-modal-animate-in {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes kf-modal-animate-in {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes kf-modal-animate-in {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes kf-modal-animate-out {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
+@-moz-keyframes kf-modal-animate-out {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
+@keyframes kf-modal-animate-out {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
+@-webkit-keyframes kf-modal-content-animate-in {
+  1% {
+    opacity: 0.5;
+    transform: scale(0.6) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@-moz-keyframes kf-modal-content-animate-in {
+  1% {
+    opacity: 0.5;
+    transform: scale(0.6) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes kf-modal-content-animate-in {
+  1% {
+    opacity: 0.5;
+    transform: scale(0.6) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@-webkit-keyframes kf-modal-content-animate-out {
+  1% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.6) translateY(-20px);
+  }
+}
+@-moz-keyframes kf-modal-content-animate-out {
+  1% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.6) translateY(-20px);
+  }
+}
+@keyframes kf-modal-content-animate-out {
+  1% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.6) translateY(-20px);
+  }
+}
 /*******************************************************************************
  ~> Element Tweaks */
 form {

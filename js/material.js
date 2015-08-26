@@ -10,18 +10,23 @@
 // Hover Listener for the Floating Action Button
 var fab = document.getElementById('fab');
 function fabEnable() {
-    fab.classList.add('fab-active');
-}
-function fabDisable() {
-    fab.classList.remove('fab-active');
+    fab.classList.toggle('fab-active');
 }
 fab.addEventListener('mouseover', fabEnable);
-fab.addEventListener('mouseout', fabDisable);
+fab.addEventListener('mouseout', fabEnable);
 
 // Handle the Modal
 var modal = document.getElementById('modal-settings');
 function HandleModal() {
-	modal.classList.toggle('in');
+    //modal.classList.toggle('modal-active');
+    if (modal.classList.contains('modal-active')) {
+	    modal.classList.remove('modal-active');
+        modal.classList.add('modal-inactive');
+    }
+    else {
+	    modal.classList.add('modal-active');
+        modal.classList.remove('modal-inactive');
+    }
 }
 [].forEach.call(document.getElementsByClassName('zmdi-more-vert'), function(entry) {
 	// foreach overflow menu icon add a click listener which calls HandleModal()
