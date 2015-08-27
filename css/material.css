@@ -1,8 +1,3 @@
-/**
-  * @desc Material Design Light theme stylesheet
-  * @author Adam Houston
-  * @required --
-*/
 /*******************************************************************************
  ~> Variables */
 /*******************************************************************************
@@ -18,9 +13,9 @@ body {
   margin: 0;
 }
 .container .panel {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
   -webkit-transition: box-shadow 0.5s linear;
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
@@ -68,9 +63,9 @@ body {
 }
 .container .panel:hover,
 .container .panel:focus {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
   -webkit-transition: box-shadow 0.5s linear;
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
@@ -113,67 +108,12 @@ body {
   width: 49%;
 }
 /*******************************************************************************
- ~ Buttons */
-.btn {
-  border-radius: .3em;
-  border: 0;
-  color: #212121;
-  display: inline-block;
-  font-size: 1.1em;
-  letter-spacing: .2em;
-  padding: .1em 3em;
-  position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
+ ~> Element Tweaks */
+form {
+  margin: 0;
 }
-.btn-circle {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -webkit-transition: box-shadow 0.5s linear;
-  -moz-transition: box-shadow 0.5s linear;
-  transition: box-shadow 0.5s linear;
-  border-radius: 50%;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  height: 4.5em;
-  overflow: hidden;
-  width: 4.5em;
-}
-.btn-circle i {
-  font-size: 2.5em;
-  line-height: 1.8em;
-  width: inherit;
-  text-align: center;
-}
-.btn,
-.btn-circle {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -webkit-transition: box-shadow 0.2s linear, background-color 0.2s linear;
-  -moz-transition: box-shadow 0.2s linear, background-color 0.2s linear;
-  transition: box-shadow 0.2s linear, background-color 0.2s linear;
-}
-.btn:hover,
-.btn-circle:hover,
-.btn:focus,
-.btn-circle:focus {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -webkit-transition: box-shadow 0.2s linear, background-color 0.2s linear;
-  -moz-transition: box-shadow 0.2s linear, background-color 0.2s linear;
-  transition: box-shadow 0.2s linear, background-color 0.2s linear;
-}
-.btn-fixed-bottom {
-  bottom: 2rem;
-  position: fixed;
-  right: 1.5rem;
-}
-.btn-fixed-bottom .btn-circle {
-  z-index: 998;
+input {
+  margin: 0;
 }
 /*******************************************************************************
  ~> Inputs */
@@ -239,6 +179,69 @@ textarea.primary-red:focus {
   border-bottom: 1px solid #f44336;
 }
 /*******************************************************************************
+ ~ Buttons */
+.btn {
+  border-radius: .3em;
+  border: 0;
+  color: #212121;
+  display: inline-block;
+  font-size: 1.1em;
+  letter-spacing: .2em;
+  padding: .1em 3em;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+.btn-circle {
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  -webkit-transition: box-shadow 0.5s linear;
+  -moz-transition: box-shadow 0.5s linear;
+  transition: box-shadow 0.5s linear;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  height: 4.5em;
+  position: relative;
+  width: 4.5em;
+}
+.btn-circle i {
+  font-size: 2.5em;
+  line-height: 1.8em;
+  width: inherit;
+  text-align: center;
+}
+.btn,
+.btn-circle {
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  -webkit-transition: box-shadow 0.2s linear, background-color 0.2s linear;
+  -moz-transition: box-shadow 0.2s linear, background-color 0.2s linear;
+  transition: box-shadow 0.2s linear, background-color 0.2s linear;
+}
+.btn:hover,
+.btn-circle:hover,
+.btn:focus,
+.btn-circle:focus {
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  -webkit-transition: box-shadow 0.2s linear, background-color 0.2s linear;
+  -moz-transition: box-shadow 0.2s linear, background-color 0.2s linear;
+  transition: box-shadow 0.2s linear, background-color 0.2s linear;
+}
+.btn-fixed-bottom {
+  bottom: 2rem;
+  position: fixed;
+  right: 1.5rem;
+}
+.btn-fixed-bottom .btn-circle {
+  z-index: 998;
+}
+/*******************************************************************************
  ~> Floating Action Buttons */
 .fab ul {
   bottom: 4.5em;
@@ -255,9 +258,9 @@ textarea.primary-red:focus {
 }
 .fab .btn-circle:hover,
 .fab .btn-cirle:focus {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
   -webkit-transition: box-shadow 0.5s linear;
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
@@ -285,15 +288,15 @@ textarea.primary-red:focus {
   transform: scale(1);
 }
 .fab-active ul li .btn-circle:after {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8) !important;
   border-radius: 5px;
   bottom: 0.5em;
   color: white;
-  content: attr(data-tooltip);
+  content: attr(data-tooltip) !important;
   right: 4em;
   padding: 5px 15px;
   position: absolute;
-  z-index: 98;
+  z-index: 999;
 }
 /*******************************************************************************
  ~> Modal */
@@ -311,9 +314,9 @@ textarea.primary-red:focus {
   visibility: hidden;
 }
 .modal .modal-content {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35);
   -webkit-transition: -webkit-transform 0.4s linear, opacity 0.4s linear, box-shadow 0.4s linear;
   -moz-transition: -moz-transform 0.4s linear, opacity 0.4s linear, box-shadow 0.4s linear;
   transition: transform 0.4s linear, opacity 0.4s linear, box-shadow 0.4s linear;
@@ -596,12 +599,4 @@ ul.tabs li.active {
     transform: scale(1.5);
     opacity: 0;
   }
-}
-/*******************************************************************************
- ~> Element Tweaks */
-form {
-  margin: 0;
-}
-input {
-  margin: 0;
 }

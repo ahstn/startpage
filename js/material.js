@@ -14,6 +14,7 @@ function fabEnable() {
 }
 fab.addEventListener('mouseover', fabEnable);
 fab.addEventListener('mouseout', fabEnable);
+fab.addEventListener('click', fabEnable);
 
 // Handle the Modal
 var modal = document.getElementById('modal-settings');

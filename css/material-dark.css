@@ -1,15 +1,10 @@
-/**
-  * @desc Material Design Dark theme stylesheet
-  * @author Adam Houston
-  * @required --
-*/
 /*******************************************************************************
  ~> Variables */
 /*******************************************************************************
  ~> Main */
 html,
 body {
-  background-color: #303030;
+  background-color: #292929;
   color: white;
   font-size: 13px;
   font-family: 'Roboto', 'Open Sans', sans-serif;
@@ -18,9 +13,9 @@ body {
   margin: 0;
 }
 .container .panel {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
   -webkit-transition: box-shadow 0.5s linear;
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
@@ -68,9 +63,9 @@ body {
 }
 .container .panel:hover,
 .container .panel:focus {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
   -webkit-transition: box-shadow 0.5s linear;
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
@@ -88,7 +83,7 @@ body {
   }
 }
 .container #search {
-  padding: 0!important;
+  padding: 0 1em;
 }
 .container #search input {
   font-size: 1.4em;
@@ -113,6 +108,77 @@ body {
   width: 49%;
 }
 /*******************************************************************************
+ ~> Element Tweaks */
+form {
+  margin: 0;
+}
+input {
+  margin: 0;
+}
+/*******************************************************************************
+ ~> Inputs */
+form .row {
+  margin-bottom: 1.6rem;
+}
+form .row:last-of-type {
+  margin-bottom: 0;
+}
+input[type="text"],
+select,
+textarea {
+  background-color: #424242;
+  border: 0;
+  border-bottom: 1px solid #ffffff;
+  border-radius: 0;
+  color: white;
+  padding: 0;
+}
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border: 0;
+}
+input[type="text"].primary-blue:focus,
+select.primary-blue:focus,
+textarea.primary-blue:focus {
+  border-bottom: 1px solid #03a9f4;
+}
+input[type="text"].primary-purple:focus,
+select.primary-purple:focus,
+textarea.primary-purple:focus {
+  border-bottom: 1px solid #9c27b0;
+}
+input[type="text"].primary-indigo:focus,
+select.primary-indigo:focus,
+textarea.primary-indigo:focus {
+  border-bottom: 1px solid #3f51b5;
+}
+input[type="text"].primary-teal:focus,
+select.primary-teal:focus,
+textarea.primary-teal:focus {
+  border-bottom: 1px solid #009688;
+}
+input[type="text"].primary-green:focus,
+select.primary-green:focus,
+textarea.primary-green:focus {
+  border-bottom: 1px solid #4caf50;
+}
+input[type="text"].primary-yellow:focus,
+select.primary-yellow:focus,
+textarea.primary-yellow:focus {
+  border-bottom: 1px solid #ffeb3b;
+}
+input[type="text"].primary-orange:focus,
+select.primary-orange:focus,
+textarea.primary-orange:focus {
+  border-bottom: 1px solid #ff5722;
+}
+input[type="text"].primary-red:focus,
+select.primary-red:focus,
+textarea.primary-red:focus {
+  border-bottom: 1px solid #f44336;
+}
+/*******************************************************************************
  ~ Buttons */
 .btn {
   border-radius: .3em;
@@ -120,13 +186,16 @@ body {
   color: white;
   display: inline-block;
   font-size: 1.1em;
+  letter-spacing: .2em;
   padding: .1em 3em;
+  position: relative;
+  overflow: hidden;
   text-transform: uppercase;
 }
 .btn-circle {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
   -webkit-transition: box-shadow 0.5s linear;
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
@@ -135,6 +204,7 @@ body {
   cursor: pointer;
   display: inline-block;
   height: 4.5em;
+  position: relative;
   width: 4.5em;
 }
 .btn-circle i {
@@ -145,23 +215,23 @@ body {
 }
 .btn,
 .btn-circle {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -webkit-transition: box-shadow 0.5s linear;
-  -moz-transition: box-shadow 0.5s linear;
-  transition: box-shadow 0.5s linear;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  -webkit-transition: box-shadow 0.2s linear, background-color 0.2s linear;
+  -moz-transition: box-shadow 0.2s linear, background-color 0.2s linear;
+  transition: box-shadow 0.2s linear, background-color 0.2s linear;
 }
 .btn:hover,
 .btn-circle:hover,
 .btn:focus,
 .btn-circle:focus {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -webkit-transition: box-shadow 0.5s linear;
-  -moz-transition: box-shadow 0.5s linear;
-  transition: box-shadow 0.5s linear;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+  -webkit-transition: box-shadow 0.2s linear, background-color 0.2s linear;
+  -moz-transition: box-shadow 0.2s linear, background-color 0.2s linear;
+  transition: box-shadow 0.2s linear, background-color 0.2s linear;
 }
 .btn-fixed-bottom {
   bottom: 2rem;
@@ -188,9 +258,9 @@ body {
 }
 .fab .btn-circle:hover,
 .fab .btn-cirle:focus {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.7);
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
   -webkit-transition: box-shadow 0.5s linear;
   -moz-transition: box-shadow 0.5s linear;
   transition: box-shadow 0.5s linear;
@@ -215,56 +285,48 @@ body {
   -moz-transition: -moz-transform 0.2s linear, opacity 0.2s linear, box-shadow 0.2s linear;
   transition: transform 0.2s linear, opacity 0.2s linear, box-shadow 0.2s linear;
   opacity: 1;
-  transform: scale(1) translateY(0);
+  transform: scale(1);
 }
 .fab-active ul li .btn-circle:after {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8) !important;
   border-radius: 5px;
   bottom: 0.5em;
   color: white;
-  content: attr(data-tooltip);
+  content: attr(data-tooltip) !important;
   right: 4em;
   padding: 5px 15px;
   position: absolute;
-  z-index: 98;
-}
-/*******************************************************************************
- ~> Inputs */
-form .row {
-  margin-bottom: 1.6rem;
-}
-form .row:last-of-type {
-  margin-bottom: 0;
-}
-input[type="text"],
-select,
-textarea {
-  background-color: #424242;
-  color: white;
+  z-index: 999;
 }
 /*******************************************************************************
  ~> Modal */
 .modal {
+  -webkit-transition: opacity 0.25s, visibility 0.25s;
+  -moz-transition: opacity 0.25s, visibility 0.25s;
+  transition: opacity 0.25s, visibility 0.25s;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+  opacity: 0;
+  visibility: hidden;
 }
 .modal .modal-content {
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -moz-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.45);
-  -webkit-transition: box-shadow 0.5s linear;
-  -moz-transition: box-shadow 0.5s linear;
-  transition: box-shadow 0.5s linear;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+  -webkit-transition: -webkit-transform 0.4s linear, opacity 0.4s linear, box-shadow 0.4s linear;
+  -moz-transition: -moz-transform 0.4s linear, opacity 0.4s linear, box-shadow 0.4s linear;
+  transition: transform 0.4s linear, opacity 0.4s linear, box-shadow 0.4s linear;
   background-color: #424242;
   border-radius: .5em;
   display: block;
   margin: 3em auto;
   width: 60%;
+  opacity: 0.5;
+  transform: scale(0.6);
 }
 .modal .modal-content .modal-body,
 .modal .modal-content .modal-footer {
@@ -316,7 +378,18 @@ textarea {
   color: white;
 }
 .modal.in {
-  display: block;
+  -webkit-transition: opacity 0.25s, visibility 0.25s;
+  -moz-transition: opacity 0.25s, visibility 0.25s;
+  transition: opacity 0.25s, visibility 0.25s;
+  opacity: 1;
+  visibility: visible;
+}
+.modal.in .modal-content {
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 0.4s linear, opacity 0.4s linear, box-shadow 0.4s linear;
+  -moz-transition: -moz-transform 0.4s linear, opacity 0.4s linear, box-shadow 0.4s linear;
+  transition: transform 0.4s linear, opacity 0.4s linear, box-shadow 0.4s linear;
 }
 /*******************************************************************************
  ~> Tabs */
@@ -407,6 +480,30 @@ ul.tabs li.active {
 .accent-red {
   background-color: #ff5252;
 }
+.accent-blue:hover {
+  background-color: #0ab1fc;
+}
+.accent-purple:hover {
+  background-color: #e24ffb;
+}
+.accent-indigo:hover {
+  background-color: #627afe;
+}
+.accent-teal:hover {
+  background-color: #00a596;
+}
+.accent-green:hover {
+  background-color: #55b559;
+}
+.accent-yellow:hover {
+  background-color: #ffed4a;
+}
+.accent-orange:hover {
+  background-color: #ff6331;
+}
+.accent-red:hover {
+  background-color: #ff6161;
+}
 .panel-heading[class*="primary-"],
 .panel-heading[class^="primary-"] {
   -webkit-box-shadow: 0 1px 0 0 rgba(50, 50, 50, 0.2), inset 0 -3px 0 0 rgba(50, 50, 50, 0.2);
@@ -427,40 +524,102 @@ ul.tabs li.active {
   color: white;
 }
 #clock[class*="accent-"],
-#clock[class^="accent-"] {
+#clock[class^="accent-"],
+#clock[class*="primary-"],
+#clock[class^="primary-"] {
   background-color: transparent;
 }
-#clock.accent-blue {
+#clock.primary-blue {
   color: #03a9f4;
 }
-#clock.accent-purple {
-  color: #e040fb;
+#clock.primary-purple {
+  color: #9c27b0;
 }
-#clock.accent-indigo {
-  color: #536dfe;
+#clock.primary-indigo {
+  color: #3f51b5;
 }
-#clock.accent-teal {
+#clock.primary-teal {
   color: #009688;
 }
-#clock.accent-green {
+#clock.primary-green {
   color: #4caf50;
 }
-#clock.accent-yellow {
+#clock.primary-yellow {
   color: #ffeb3b;
 }
-#clock.accent-orange {
+#clock.primary-orange {
   color: #ff5722;
 }
-#clock.accent-red {
-  color: #ff5252;
+#clock.primary-red {
+  color: #f44336;
 }
 /*******************************************************************************
  ~> Mixins */
 /*******************************************************************************
- ~> Element Tweaks */
-form {
-  margin: 0;
+ ~> Material Design Ripple Button Animation */
+.ripple {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
 }
-input {
-  margin: 0;
+.ripple.show {
+  -webkit-animation: ripple 0.5s ease-out;
+  -moz-animation: ripple 0.5s ease-out;
+  -o-animation: ripple 0.5s ease-out;
+  animation: ripple 0.5s ease-out;
+}
+@-webkit-keyframes ripple {
+  to {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@-moz-keyframes ripple {
+  to {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@-ms-keyframes ripple {
+  to {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@-o-keyframes ripple {
+  to {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes ripple {
+  to {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    opacity: 0;
+  }
 }

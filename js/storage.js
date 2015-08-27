@@ -4,6 +4,8 @@
   * @required AngularJS (ngStorage module & SettingsModel (storageModel.js))
 */
 
+// TODO: RSS Feeds using Angular instead of Yahoo YQL
+
 var app = angular.module("Startpage", ["ngStorage", "SettingsModel"]);
 
 app.controller("MainController", function($scope, $localStorage, $interval, SettingsModel) {

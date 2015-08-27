@@ -1,0 +1,111 @@
+/*******************************************************************************
+ ~ Buttons */
+.btn {
+    border-radius: .3em;
+    border: 0;
+    color: @text-primary;
+    display: inline-block;
+    font-size: 1.1em;
+    letter-spacing: .2em;
+    padding: .1em 3em;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.btn-circle {
+    .shadow();
+    .shadow-animate-shorter();
+    border-radius: 50%;
+    color: @text-secondary;
+    cursor: pointer;
+    display: inline-block;
+    height: 4.5em;
+    position: relative;
+    width: 4.5em;
+
+    i {
+        font-size: 2.5em;
+        line-height: 1.8em;
+        width: inherit;
+        text-align: center;
+    }
+}
+// TODO: better animations when clicking and hovering buttons
+.btn, .btn-circle {
+    .shadow();
+    .button-animate();
+
+    &:hover, &:focus {
+        .shadow-darker();
+        .button-animate();
+    }
+}
+
+.btn-fixed-bottom {
+    bottom: 2rem;
+    position: fixed;
+    right: 1.5rem;
+
+    .btn-circle {
+        z-index: 998;
+    }
+}
+
+/*******************************************************************************
+ ~> Floating Action Buttons */
+.fab {
+    ul {
+        bottom: 4.5em;
+        display: inline-block;
+        margin: 0px;
+        position: relative;
+        text-align: center;
+        width: 4.5em;
+        z-index: 990;
+    }
+
+    li {
+        list-style: none;
+        margin-bottom: 1em;
+    }
+    .btn-circle:hover, .btn-cirle:focus {
+        .shadow-darker();
+        .shadow-animate-shorter();
+        color: @text-secondary;
+    }
+}
+
+.fab ul li .btn-circle {
+    .transform-animate();
+    display: inline-block;
+    height: 3.5rem;
+    opacity: 0;
+    transform: scale(0.5);
+    width: 3.5rem;
+
+    i {
+        font-size: 2em;
+        line-height: 1.7em;
+    }
+}
+
+.fab-active ul li {             // When FAB is hovered
+    .btn-circle {
+        .transform-animate();
+        opacity: 1;
+        transform: scale(1);
+    }
+    .btn-circle:after {         // Tooltip
+        background: rgba(0,0,0,.8)!important;
+        border-radius: 5px;
+        bottom: 0.5em;
+        color: @text-secondary;
+        content: attr(data-tooltip)!important;
+        right: 4em;
+        padding: 5px 15px;
+        position: absolute;
+        z-index: 999;
+    }
+
+}

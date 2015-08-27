@@ -1,6 +1,12 @@
+/**
+  * @desc Material Design Light theme stylesheet
+  * @author Adam Houston
+  * @required --
+*/
+
 /*******************************************************************************
  ~> Variables */
-@text-primary:      white;
+@text-primary:      #212121;
 @text-primary-lighter:     lighten(@text-primary, 20%);
 @text-primary-lightest:    lighten(@text-primary, 60%);
 @text-secondary:    white;
@@ -39,11 +45,8 @@
 
 @divider:           #B6B6B6;
 
-@panel-bg:          #424242;
-@panel-bg-darker:   darken(@panel-bg, 10%); // #303030
-
-@shadow:            rgba(0, 0, 0, .25);
-@shadow-darker:     rgba(0, 0, 0, .4);
+@panel-bg:          #FAFAFA;
+@panel-bg-darker:   darken(@panel-bg, 10%);
 
 @screen-sm: 480px;
 @screen-md: 768px;
@@ -150,12 +153,63 @@
 }
 
 /*******************************************************************************
- ~> Element Tweaks */
-form { margin: 0; }
-input { margin: 0; }
+ ~ Buttons */
+
+.btn {
+    border-radius: .3em;
+    border: 0;
+    color: @text-primary;
+    display: inline-block;
+    font-size: 1.1em;
+    letter-spacing: .2em;
+    padding: .1em 3em;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.btn-circle {
+    .shadow();
+    .shadow-animate-shorter();
+    border-radius: 50%;
+    color: @text-secondary;
+    cursor: pointer;
+    display: inline-block;
+    height: 4.5em;
+    overflow: hidden;
+    width: 4.5em;
+
+    i {
+        font-size: 2.5em;
+        line-height: 1.8em;
+        width: inherit;
+        text-align: center;
+    }
+}
+// TODO: better animations when clicking and hovering buttons
+.btn, .btn-circle {
+    .shadow();
+    .button-animate();
+
+    &:hover, &:focus {
+        .shadow-darker();
+        .button-animate();
+    }
+}
+
+.btn-fixed-bottom {
+    bottom: 2rem;
+    position: fixed;
+    right: 1.5rem;
+
+    .btn-circle {
+        z-index: 998;
+    }
+}
 
 /*******************************************************************************
  ~> Inputs */
+ // TODO: Material style inputs (textboxes, dropdowns, etc)
 form {
     .row {
         margin-bottom: 1.6rem;
@@ -202,60 +256,6 @@ input[type="text"].primary-red, select.primary-red, textarea.primary-red {
 }
 
 /*******************************************************************************
- ~ Buttons */
-.btn {
-    border-radius: .3em;
-    border: 0;
-    color: @text-primary;
-    display: inline-block;
-    font-size: 1.1em;
-    letter-spacing: .2em;
-    padding: .1em 3em;
-    position: relative;
-    overflow: hidden;
-    text-transform: uppercase;
-}
-
-.btn-circle {
-    .shadow();
-    .shadow-animate-shorter();
-    border-radius: 50%;
-    color: @text-secondary;
-    cursor: pointer;
-    display: inline-block;
-    height: 4.5em;
-    position: relative;
-    width: 4.5em;
-
-    i {
-        font-size: 2.5em;
-        line-height: 1.8em;
-        width: inherit;
-        text-align: center;
-    }
-}
-// TODO: better animations when clicking and hovering buttons
-.btn, .btn-circle {
-    .shadow();
-    .button-animate();
-
-    &:hover, &:focus {
-        .shadow-darker();
-        .button-animate();
-    }
-}
-
-.btn-fixed-bottom {
-    bottom: 2rem;
-    position: fixed;
-    right: 1.5rem;
-
-    .btn-circle {
-        z-index: 998;
-    }
-}
-
-/*******************************************************************************
  ~> Floating Action Buttons */
 .fab {
     ul {
@@ -299,16 +299,17 @@ input[type="text"].primary-red, select.primary-red, textarea.primary-red {
         opacity: 1;
         transform: scale(1);
     }
+
     .btn-circle:after {         // Tooltip
-        background: rgba(0,0,0,.8)!important;
+        background: rgba(0,0,0,.8);
         border-radius: 5px;
         bottom: 0.5em;
         color: @text-secondary;
-        content: attr(data-tooltip)!important;
+        content: attr(data-tooltip);
         right: 4em;
         padding: 5px 15px;
         position: absolute;
-        z-index: 999;
+        z-index: 98;
     }
 
 }
@@ -487,28 +488,20 @@ ul.tabs {
 #clock[class*="primary-"],
 #clock[class^="primary-"] {
     background-color: transparent;
+    color: @text-primary;
 }
-
-#clock.primary-blue   { color: @primary-blue;   }
-#clock.primary-purple { color: @primary-purple; }
-#clock.primary-indigo { color: @primary-indigo; }
-#clock.primary-teal   { color: @primary-teal;   }
-#clock.primary-green  { color: @primary-green;  }
-#clock.primary-yellow { color: @primary-yellow; }
-#clock.primary-orange { color: @primary-orange; }
-#clock.primary-red    { color: @primary-red;    }
 
 /*******************************************************************************
  ~> Mixins */
-.shadow () {
-    -webkit-box-shadow: 0 3px 3px 0 @shadow;
-       -moz-box-shadow: 0 3px 3px 0 @shadow;
-            box-shadow: 0 3px 3px 0 @shadow;
+.shadow (@shadow-color: rgba(50, 50, 50, .45)) {
+    -webkit-box-shadow: 0px 3px 3px 0px @shadow-color;
+       -moz-box-shadow: 0px 3px 3px 0px @shadow-color;
+            box-shadow: 0px 3px 3px 0px @shadow-color;
 }
-.shadow-darker () {
-    -webkit-box-shadow: 0 3px 3px 0 @shadow-darker;
-       -moz-box-shadow: 0 3px 3px 0 @shadow-darker;
-            box-shadow: 0 3px 3px 0 @shadow-darker;
+.shadow-darker (@shadow-color: rgba(50, 50, 50, .7)) {
+    -webkit-box-shadow: 0px 3px 3px 0px @shadow-color;
+       -moz-box-shadow: 0px 3px 3px 0px @shadow-color;
+            box-shadow: 0px 3px 3px 0px @shadow-color;
 }
 
 .inset-shadow (@shadow-color: rgba(50, 50, 50, .2)) {
@@ -557,6 +550,7 @@ ul.tabs {
 
 /*******************************************************************************
  ~> Material Design Ripple Button Animation */
+
 .ripple {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.25);
@@ -591,3 +585,8 @@ ul.tabs {
 @-ms-keyframes ripple { .ripple-mixin; }
 @-o-keyframes ripple { .ripple-mixin; }
 @keyframes ripple { .ripple-mixin; }
+
+/*******************************************************************************
+ ~> Element Tweaks */
+form { margin: 0; }
+input { margin: 0; }

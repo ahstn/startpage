@@ -1,0 +1,52 @@
+/*******************************************************************************
+ ~> Material Design Primary and Accent Colors */
+.primary-blue     { background-color: @primary-blue;   }
+.primary-purple   { background-color: @primary-purple; }
+.primary-indigo   { background-color: @primary-indigo; }
+.primary-teal     { background-color: @primary-teal;   }
+.primary-green    { background-color: @primary-green;  }
+.primary-yellow   { background-color: @primary-yellow; }
+.primary-orange   { background-color: @primary-orange; }
+.primary-red      { background-color: @primary-red;    }
+
+.accent-blue      { background-color: @accent-blue;    }
+.accent-purple    { background-color: @accent-purple;  }
+.accent-indigo    { background-color: @accent-indigo;  }
+.accent-teal      { background-color: @accent-teal;    }
+.accent-green     { background-color: @accent-green;   }
+.accent-yellow    { background-color: @accent-yellow;  }
+.accent-orange    { background-color: @accent-orange;  }
+.accent-red       { background-color: @accent-red;     }
+.accent-blue:hover   { background-color: @accent-blue-light;   }
+.accent-purple:hover { background-color: @accent-purple-light; }
+.accent-indigo:hover { background-color: @accent-indigo-light; }
+.accent-teal:hover   { background-color: @accent-teal-light;   }
+.accent-green:hover  { background-color: @accent-green-light;  }
+.accent-yellow:hover { background-color: @accent-yellow-light; }
+.accent-orange:hover { background-color: @accent-orange-light; }
+.accent-red:hover    { background-color: @accent-red-light;    }
+
+.panel-heading[class*="primary-"],
+.panel-heading[class^="primary-"] {
+    .inset-shadow();
+    color: @text-secondary;
+    a {
+        color: @text-secondary;
+    }
+    a:hover {
+        color: @text-secondary;
+    }
+}
+
+.btn[class*="accent-"],
+.btn[class^="accent-"] {
+    color: @text-secondary;
+}
+
+#clock[class*="accent-"],
+#clock[class^="accent-"],
+#clock[class*="primary-"],
+#clock[class^="primary-"] {
+    background-color: transparent;
+    color: @text-primary;
+}

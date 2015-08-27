@@ -1,0 +1,82 @@
+/*******************************************************************************
+ ~> Modal */
+.modal {
+    .animate(opacity 0.25s, visibility 0.25s);
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+
+    .modal-content {
+        .shadow();
+        .transform-animate(0.4s);
+        background-color: @panel-bg;
+        border-radius: .5em;
+        display: block;
+        margin: 3em auto;
+        width: 60%;
+        opacity: 0.5;
+        transform: scale(0.6);
+
+        .modal-body, .modal-footer {
+            padding: 1em;
+        }
+        .modal-header {
+            border-top-left-radius: .5em;
+            border-top-right-radius: .5em;
+            padding-bottom: 0;
+            margin-bottom: 1.5em;
+            .modal-heading {
+                padding: 1rem 1.5rem 0;
+                h6 {
+                    display: inline-block;
+                    font-weight: 600;
+                    margin: 0;
+                    padding: 0;
+                }
+                a {
+                    cursor: pointer;
+                    display: inline-block;
+                    float: right;
+                    font-size: 1.5rem;
+                    padding: 0.25em 0.1em;
+                    margin: 0 0.4em;
+                }
+            }
+        }
+        .modal-body {
+            padding: 1em 4em;
+        }
+        .modal-footer {
+            text-align: right;
+            button {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.modal-header[class*="modal-"],
+.modal-header[class^="modal-"] { /* all colored modals */
+    .inset-shadow();
+    .modal-heading {
+        h6, a {
+            color: @text-secondary;
+        }
+    }
+}
+.modal.in {
+    .animate(opacity 0.25s, visibility 0.25s);
+    opacity: 1;
+    visibility: visible;
+
+    .modal-content {
+        opacity: 1;
+        transform: scale(1);
+        .transform-animate(0.4s);
+    }
+}
