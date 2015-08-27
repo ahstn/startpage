@@ -18,15 +18,8 @@ fab.addEventListener('mouseout', fabEnable);
 // Handle the Modal
 var modal = document.getElementById('modal-settings');
 function HandleModal() {
-    //modal.classList.toggle('modal-active');
-    if (modal.classList.contains('modal-active')) {
-	    modal.classList.remove('modal-active');
-        modal.classList.add('modal-inactive');
-    }
-    else {
-	    modal.classList.add('modal-active');
-        modal.classList.remove('modal-inactive');
-    }
+    modal.setAttribute('style', 'display: block;');
+    modal.classList.toggle('in');
 }
 [].forEach.call(document.getElementsByClassName('zmdi-more-vert'), function(entry) {
 	// foreach overflow menu icon add a click listener which calls HandleModal()
@@ -50,3 +43,25 @@ function HandleTabs() {
 	var tab = entry.getAttribute('href');
 	entry.addEventListener('click', HandleTabs);
 });
+
+// Material Design Button Ripple
+var addRippleEffect = function (e) {
+    var target = e.target;
+    if (target.tagName.toLowerCase() !== 'button') return false;
+    var rect = target.getBoundingClientRect();
+    var ripple = target.querySelector('.ripple');
+    if (!ripple) {
+        ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.height = ripple.style.width = Math.max(rect.width, rect.height) + 'px';
+        target.appendChild(ripple);
+    }
+    ripple.classList.remove('show');
+    var top = e.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
+    var left = e.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
+    ripple.style.top = top + 'px';
+    ripple.style.left = left + 'px';
+    ripple.classList.add('show');
+    return false;
+};
+document.addEventListener('click', addRippleEffect, false);

@@ -13,7 +13,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <div id="clock" ng-class="userPrefs.accentColor">
+      <div id="clock" ng-class="userPrefs.primaryColor">
         {{ date | date:'HH:mm:ss' }}
       </div>
     </div>
@@ -107,7 +107,7 @@
 </div><!-- /fab -->
 
 <!-- User Settings Modal -->
-<div class="modal modal-inactive" id="modal-settings">
+<div class="modal" id="modal-settings" style="visibility: hidden;">
 <div class="modal-content">
   <div class="modal-header" ng-class="userPrefs.primaryColor">
     <!-- TODO: implement buttons for load and an overflow menu -->

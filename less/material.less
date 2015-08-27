@@ -161,7 +161,10 @@
     color: @text-primary;
     display: inline-block;
     font-size: 1.1em;
+    letter-spacing: .2em;
     padding: .1em 3em;
+    position: relative;
+    overflow: hidden;
     text-transform: uppercase;
 }
 
@@ -173,6 +176,7 @@
     cursor: pointer;
     display: inline-block;
     height: 4.5em;
+    overflow: hidden;
     width: 4.5em;
 
     i {
@@ -185,11 +189,11 @@
 // TODO: better animations when clicking and hovering buttons
 .btn, .btn-circle {
     .shadow();
-    .shadow-animate-shorter();
+    .button-animate();
 
     &:hover, &:focus {
         .shadow-darker();
-        .shadow-animate-shorter();
+        .button-animate();
     }
 }
 
@@ -313,21 +317,26 @@ input[type="text"].primary-red, select.primary-red, textarea.primary-red {
 /*******************************************************************************
  ~> Modal */
 .modal {
+    .animate(opacity 0.25s, visibility 0.25s);
     background-color: rgba(0, 0, 0, .5);
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
-    display: none;
+    opacity: 0;
+    visibility: hidden;
 
     .modal-content {
         .shadow();
+        .transform-animate(0.4s);
         background-color: @panel-bg;
         border-radius: .5em;
         display: block;
         margin: 3em auto;
         width: 60%;
+        opacity: 0.5;
+        transform: scale(0.6);
 
         .modal-body, .modal-footer {
             padding: 1em;
@@ -376,19 +385,15 @@ input[type="text"].primary-red, select.primary-red, textarea.primary-red {
         }
     }
 }
-.modal-active {
-    .keyframes-animation(kf-modal-animate-in 0.25s);
-    display: block;
+.modal.in {
+    .animate(opacity 0.25s, visibility 0.25s);
     opacity: 1;
-    .modal-content {
-        //.keyframes-animation(kf-modal-content-animate-in 0.8s);
-    }
-}
+    visibility: visible;
 
-.modal-inactive {
-    .keyframes-animation(kf-modal-animate-out 0.25s);
     .modal-content {
-        //.keyframes-animation(kf-modal-content-animate-out 0.8s)
+        opacity: 1;
+        transform: scale(1);
+        .transform-animate(0.4s);
     }
 }
 
@@ -479,7 +484,9 @@ ul.tabs {
 }
 
 #clock[class*="accent-"],
-#clock[class^="accent-"] {
+#clock[class^="accent-"],
+#clock[class*="primary-"],
+#clock[class^="primary-"] {
     background-color: transparent;
     color: @text-primary;
 }
@@ -514,6 +521,15 @@ ul.tabs {
             transition: box-shadow @animate-length linear;
 }
 
+.button-animate (@animate-length: .2s) {
+    -webkit-transition: box-shadow @animate-length linear,
+                        background-color @animate-length linear;
+       -moz-transition: box-shadow @animate-length linear,
+                        background-color @animate-length linear;
+            transition: box-shadow @animate-length linear,
+                        background-color @animate-length linear;
+}
+
 .transform-animate (@animate-length: .2s) {
     -webkit-transition: -webkit-transform @animate-length linear,
                             opacity @animate-length linear,
@@ -526,47 +542,50 @@ ul.tabs {
                             box-shadow @animate-length linear;
 }
 
-.keyframes-animation(@animation) {
-    -webkit-animation: @animation;
-       -moz-animation: @animation;
-            animation: @animation;
+.animate (@animation1, @animation2) {
+    -webkit-transition: @animation1, @animation2;
+       -moz-transition: @animation1, @animation2;
+            transition: @animation1, @animation2;
 }
 
-.modal-animate-in() {
-    0% { display: none; opacity: 0; }
-    1% { display: block; }
-    100% { opacity: 1; }
-}
-.modal-animate-out() {
-    0% { display: block; opacity: 1; }
-    99% {opacity: 0; }
-    100% { display: none; }
-}
-.modal-content-animate-in() {
-    1% { opacity: 0.5; transform: scale(0.6) translateY(-20px); }
-    100%   { opacity: 1; transform: scale(1) translateY(0); }
-}
-.modal-content-animate-out() {
-    1% { opacity: 1; transform: scale(1) translateY(0); }
-    100%   { opacity: 0.5; transform: scale(0.6) translateY(-20px); }
-}
 // TODO: Button click animations
-
 /*******************************************************************************
- ~> Keyframes */
-@-webkit-keyframes kf-modal-animate-in  { .modal-animate-in; }
-   @-moz-keyframes kf-modal-animate-in  { .modal-animate-in; }
-        @keyframes kf-modal-animate-in  { .modal-animate-in; }
-@-webkit-keyframes kf-modal-animate-out { .modal-animate-out; }
-   @-moz-keyframes kf-modal-animate-out { .modal-animate-out; }
-        @keyframes kf-modal-animate-out { .modal-animate-out; }
-@-webkit-keyframes kf-modal-content-animate-in  { .modal-content-animate-in; }
-   @-moz-keyframes kf-modal-content-animate-in  { .modal-content-animate-in; }
-        @keyframes kf-modal-content-animate-in  { .modal-content-animate-in; }
-@-webkit-keyframes kf-modal-content-animate-out { .modal-content-animate-out; }
-   @-moz-keyframes kf-modal-content-animate-out { .modal-content-animate-out; }
-        @keyframes kf-modal-content-animate-out { .modal-content-animate-out; }
+ ~> Material Design Ripple Button Animation */
 
+.ripple {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.25);
+    pointer-events: none;
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+.ripple.show {
+    -webkit-animation: ripple .5s ease-out;
+    -moz-animation: ripple .5s ease-out;
+    -o-animation: ripple .5s ease-out;
+    animation: ripple .5s ease-out;
+}
+
+.ripple-mixin () {
+    to {
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes ripple { .ripple-mixin; }
+@-moz-keyframes ripple { .ripple-mixin; }
+@-ms-keyframes ripple { .ripple-mixin; }
+@-o-keyframes ripple { .ripple-mixin; }
+@keyframes ripple { .ripple-mixin; }
 
 /*******************************************************************************
  ~> Element Tweaks */
