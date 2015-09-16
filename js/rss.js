@@ -11,9 +11,7 @@ $(document).ready(function() {
     var sky_sports = "http://skysports.com/rss/0,20514,11661,00.xml";
     var news_feed_num = 4;
 
-    GetRSS(bbc_feed, '#rssOne');
-    GetRSS(bbc_tech_feed, '#rssTwo');
-    GetRSS(sky_sports, '#rssThree');
+    //GetRSS(bbc_feed, '#rssOne');
 
     function GetRSS(link, id) {
         $.ajax({
@@ -35,11 +33,11 @@ $(document).ready(function() {
                         // Append the passed element with a link for the RSS item
                         $(id).append($('<a>').attr('href', item.link).html(item.title));
                     }
-                })
+                });
             },
             error: function(data) {
                 console.log('Error recieving a response from YQL');
             }
         });
-    };
+    }
 });

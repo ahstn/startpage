@@ -60,16 +60,28 @@
         <div class="panel-heading" ng-class="userPrefs.primaryColor">
           <h6>BBC News</h6>
         </div>
+        <a ng-repeat="feed in feed1.item | filter:filterText | limitTo: 4"
+          href="{{feed.link}}">
+          {{feed.title}}
+        </a>
       </div>
       <div class="four columns panel" ng-class="userPrefs.primaryColor" id="rssTwo">
         <div class="panel-heading" ng-class="userPrefs.primaryColor">
           <h6>BBC Technology</h6>
         </div>
+        <a ng-repeat="feed in feed2.item | filter:filterText | limitTo: 4"
+          href="{{feed.link}}">
+          {{feed.title}}
+        </a>
       </div>
       <div class="four columns panel"  ng-class="userPrefs.primaryColor"id="rssThree">
         <div class="panel-heading" ng-class="userPrefs.primaryColor">
           <h6>Sky Sports</h6>
         </div>
+        <a ng-repeat="feed in feed3.item | filter:filterText | limitTo: 4"
+          href="{{feed.link}}">
+          {{feed.title}}
+        </a>
       </div>
     </div>
     <div class="row">
@@ -259,8 +271,8 @@
 </div>
 <script src="js/jquery/jquery-2.1.4.min.js"></script>
 <script src="js/material.js"></script>
-<script src="js/rss.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/storageModel.js"></script>
+<script src="js/rssService.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 /**
   * @desc Defines the settings model and default data used in the
   *   Angular Controller (storage.js)

@@ -6,11 +6,13 @@
 
 // TODO: RSS Feeds using Angular instead of Yahoo YQL
 
-var app = angular.module("Startpage", ["ngStorage", "SettingsModel"]);
+var app = angular.module('Startpage', ['ngStorage', 'ngRSS', 'SettingsModel']);
 
-app.controller("MainController", function($scope, $localStorage, $interval, SettingsModel) {
+app.controller("MainController", function($scope, $q, $localStorage, $interval,
+    ngRSS, SettingsModel) {
     $scope.date = new Date();
     $scope.theme = '';
+
 
     // Load User Data when page is loaded
     $scope.init = function() {
@@ -23,11 +25,13 @@ app.controller("MainController", function($scope, $localStorage, $interval, Sett
             $scope.userPanel3 = SettingsModel.userPanel3;
             $scope.userPanel4 = SettingsModel.userPanel4;
             $scope.stylesheet();
+            $scope.getFeed($scope.userRss);
         }
         else {
             console.log('Local stoage found | Loading local storage');
             $scope.loadAll();
             $scope.stylesheet();
+            $scope.getFeed($scope.userRss);
         }
     };
 
@@ -57,10 +61,10 @@ app.controller("MainController", function($scope, $localStorage, $interval, Sett
         $scope.savePrefs();
         $scope.savePanels();
         $scope.stylesheet();
+        $scope.getFeed($scope.userRss);
     };
 
     $scope.loadAll = function() {
-        console.log($localStorage.userPanel1);
         $scope.loadRss();
         $scope.loadPrefs();
         $scope.loadPanels();
@@ -85,7 +89,6 @@ app.controller("MainController", function($scope, $localStorage, $interval, Sett
         $localStorage.userPanel2 = $scope.userPanel2;
         $localStorage.userPanel3 = $scope.userPanel3;
         $localStorage.userPanel4 = $scope.userPanel4;
-        console.log($localStorage.userPanel1);
     };
     $scope.loadPanels = function() {
         $scope.userRss = $localStorage.userRss;
@@ -96,4 +99,15 @@ app.controller("MainController", function($scope, $localStorage, $interval, Sett
         $scope.userPanel4 = $localStorage.userPanel4;
     };
 
+    $scope.getFeed = function(links) {
+        ngRSS.GetRSS(links[0].url).then(function (data) {
+            $scope.feed1 =  data;
+        });
+        ngRSS.GetRSS(links[1].url).then(function (data) {
+            $scope.feed2 =  data;
+        });
+        ngRSS.GetRSS(links[2].url).then(function (data) {
+            $scope.feed3 =  data;
+        });
+    };
 });
