@@ -10,6 +10,8 @@ angular.module('SettingsModel', [])
     var userPrefs = {
         primaryColor: "primary-blue",
         accentColor: "accent-red",
+        clockColor: "",
+        background: "",
         theme: 0 // 0 = time controlled, 1 = light theme, 2 = dark theme
     };
 

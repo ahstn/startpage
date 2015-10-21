@@ -26,6 +26,7 @@ function HandleModal() {
 	// foreach overflow menu icon add a click listener which calls HandleModal()
 	entry.addEventListener('click', HandleModal);
 });
+document.getElementById('fab-visuals').addEventListener('click', HandleModal);
 document.getElementById('btn-modal-cancel').addEventListener('click', HandleModal);
 
 // Function and EventListener for tabs

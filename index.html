@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html ng-app="Startpage" ng-controller="MainController" ng-init="init()">
+<html ng-app="Startpage" ng-controller="MainController" ng-init="init()"
+  ng-style="{'background-image': 'url(' + userPrefs.background + ')'}">
 <head>
   <meta charset="utf-8">
   <title>AH | Startpage</title>
@@ -13,7 +14,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <div id="clock" ng-class="userPrefs.primaryColor">
+      <div id="clock" ng-class="userPrefs.primaryColor" ng-style="{'color': userPrefs.clockColor}">
         {{ date | date:'HH:mm:ss' }}
       </div>
     </div>
@@ -44,12 +45,14 @@
       <div class="three columns panel">
         <div class="panel-heading" ng-class="userPrefs.primaryColor">
           <h6>Shopping</h6>
+          <a class="zmdi zmdi-more-vert" href="#tab-panel3"></a>
         </div>
         <a ng-repeat="item in userPanel3" href="{{item.url}}">{{item.title}}</a>
       </div>
       <div class="three columns panel">
         <div class="panel-heading" ng-class="userPrefs.primaryColor">
           <h6>News</h6>
+          <a class="zmdi zmdi-more-vert" href="#tab-panel4"></a>
         </div>
         <a ng-repeat="item in userPanel4" href="{{item.url}}">{{item.title}}</a>
       </div>
@@ -84,17 +87,15 @@
         </a>
       </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
       <div class="twelve columns panel" ng-class="userPrefs.primaryColor">
         <div class="panel-heading" ng-class="userPrefs.primaryColor">
           <h6>Weather</h6>
         </div>
-        <!--
         TODO: Decide if Weather should be added
         if so, implement it in rss.js
-      -->
     </div>
-  </div>
+  </div>-->
 </div><!-- /container -->
 
 <!-- Floating Action Button -->
@@ -111,7 +112,7 @@
     </li>
     <li>
       <a class="btn-circle" ng-class="userPrefs.primaryColor"
-        href="#tab-prefs" data-tooltip="Visuals">
+        href="#tab-panel1" data-tooltip="Visuals" id="fab-visuals">
         <i class="zmdi zmdi-eye"></i>
       </a>
     </li>
@@ -182,11 +183,33 @@
         </select>
       </div>
       <div class="row">
+        <label for="tbClock">Clock Color:</label>
+        <select ng-model="userPrefs.clockColor" class="u-full-width" id="tbClock">
+          <option value="" autofocus>Time Controlled (Default)</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="#424242">Grey</option>
+        </select>
+      </div>
+      <div class="row">
         <label for="tbTheme">Material Design Theme:</label>
         <select ng-model="userPrefs.theme" class="u-full-width" id="tbTheme">
-          <option value="0">Time Controlled (Default)</option>
+          <option value="0" autofocus>Time Controlled (Default)</option>
           <option value="1">Light Theme</option>
           <option value="2">Dark Theme</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="tbBg">Background:</label>
+        <select ng-model="userPrefs.background" class="u-full-width" id="tbBg">
+          <option value="" autofocus>Time Controlled (Default)</option>
+          <option value="img/mm_001.jpg">Marshmallow Dark Green</option>
+          <option value="img/mm_002.jpg">Marshmallow Dark Yellow</option>
+          <option value="img/mm_003.jpg">Marshmallow Ocean Cliffs</option>
+          <option value="img/mm_004.jpg">Marshmallow Desert River</option>
+          <option value="img/mm_005.jpg">Marshmallow Ocean Waves</option>
+          <option value="img/mm_006.jpg">Marshmallow Pyramid</option>
+          <option value="img/mm_007.jpg">Marshmallow Grand Canyon</option>
         </select>
       </div>
     </div><!-- /prefs tab -->

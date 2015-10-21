@@ -2,9 +2,11 @@
  ~> Variables */
 /*******************************************************************************
  ~> Main */
+html {
+  background-color: #e1e1e1;
+}
 html,
 body {
-  background-color: #e1e1e1;
   color: #212121;
   font-size: 13px;
   font-family: 'Roboto', 'Open Sans', sans-serif;
