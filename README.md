@@ -27,7 +27,7 @@ A minimal, Material Design inspired browser home/new tab page designed to act as
 
 ## Preview
 Build (21/10/15):
-![Startpage](preview.png)
+![Startpage](img/preview.png)
 
 ## Todo
 - [ ] Search Engine Customisation
