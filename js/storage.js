@@ -110,4 +110,21 @@ app.controller("MainController", function($scope, $q, $localStorage, $interval,
             $scope.feed3 =  data;
         });
     };
+
+    // factory this
+    $scope.download = function() {
+        var json = angular.toJson($scope.userPanel1) 
+            + angular.toJson($scope.userPanel2);
+        var file = new Blob([json], { type: "application/json" });
+        var url  = URL.createObjectURL(file);
+
+        $('#dl').attr('download', 'backup.json');
+        $('#dl').attr('href', url);
+    } 
+
+    $scope.upload = function() {
+        $('#ul').change(function() {
+            console.log($('#ul').get(0).files);
+        });
+    }
 });

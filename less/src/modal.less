@@ -38,13 +38,28 @@
                     margin: 0;
                     padding: 0;
                 }
-                a {
+                a, span {
                     cursor: pointer;
                     display: inline-block;
                     float: right;
                     font-size: 1.5rem;
                     padding: 0.25em 0.1em;
                     margin: 0 0.4em;
+                }
+                span {
+                    color: @text-secondary;
+                    cursor: pointer;
+                    height: 15px;
+                    width: 15px;
+                    overflow: hidden;
+                    position: relative;
+                }
+                span input {
+                    cursor: pointer;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
                 }
             }
         }

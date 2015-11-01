@@ -126,8 +126,11 @@
     <!-- TODO: implement buttons for load and an overflow menu -->
     <div class="row modal-heading">
       <h6>User Settings</h6>
-      <a ng-click="loadAll()" class="zmdi zmdi-close" id="btn-modal-cancel"></a>
-      <a class="zmdi zmdi-refresh-sync"></a>
+      <a ng-click="init()" class="zmdi zmdi-close" id="btn-modal-cancel"></a>
+      <span class="zmdi zmdi-upload">
+        <input ng-click="upload()" id="ul" type="file">
+      </span>
+      <a ng-click="download()" id="dl" class="zmdi zmdi-download"></a>
     </div>
     <div class="row">
       <ul class="tabs twelve columns">
