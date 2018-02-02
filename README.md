@@ -6,6 +6,9 @@
 
 A minimal, Material Design inspired browser home/new tab page designed to act as a personal dashboard.
 
+### Unmaintained
+I haven't looked at this project in quite some time and therefore it's very out of date. Hopefully at some point I'll get around to updating it, finishing out the todos and polishing it off. As far as I know the chrome extension still works, so if you wanna use it feel free.
+
 **Features**
 * Night and Day Material Design themes, which switch automatically (between 5PM and 6AM)
 * Floating Action Button which provides access to options and a settings menu
