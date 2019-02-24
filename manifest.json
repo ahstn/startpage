@@ -1,7 +1,7 @@
-{ 
+{
     "name": "Tabium",
     "description": "A modern way to start your web browsing",
-    "author": "Adam Houston http://adamh.xyz"
+    "author": "Adam Houston http://ahstn.io",
     "version": "0.1",
     "chrome_url_overrides": {
         "newtab": "index.html"

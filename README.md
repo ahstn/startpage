@@ -1,40 +1,34 @@
-<h1 align="center">Startpage</h1>
-<p align="center">
-    <sup>A modern way to start your web browsing</sup>
-    <br>
-</p>
+# vue-startpage
 
-A minimal, Material Design inspired browser home/new tab page designed to act as a personal dashboard.
+## Project setup
+```
+yarn install
+```
 
-### Unmaintained
-I haven't looked at this project in quite some time and therefore it's very out of date. Hopefully at some point I'll get around to updating it, finishing out the todos and polishing it off. As far as I know the chrome extension still works, so if you wanna use it feel free.
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
 
-**Features**
-* Night and Day Material Design themes, which switch automatically (between 5PM and 6AM)
-* Floating Action Button which provides access to options and a settings menu
-* Settings panel for personalisation, which saves to HTML5 browser local storage
-* User customisable links and RSS feeds (Seach Engine customisation - WIP)
-* User customisable color palette, themes and backgrounds
+### Compiles and minifies for production
+```
+yarn run build
+```
 
-**Frameworks/Libraries Used**
-* Skeleton - [GitHub Repo](https://github.com/dhg/Skeleton)
-* Angular.js - [GitHub Repo](https://github.com/angular/angular.js)
-* ngStorage - [GitHub Repo](https://github.com/gsklee/ngStorage)
+### Run your tests
+```
+yarn run test
+```
 
-## Installation
-**Chromium Based Browsers:**
-* Grab the chromium extension [here](https://chrome.google.com/webstore/detail/md-startpage/dfigddfigkghildjbfbbdjhkgbmlmllj)
+### Lints and fixes files
+```
+yarn run lint
+```
 
-**Firefox:**
-* Todo (Since Mozilla changed how new tab pages work in Firefox 41)
+### Run your unit tests
+```
+yarn run test:unit
+```
 
-## Preview
-Build (21/10/15):
-![Startpage](img/preview.png)
-
-## Todo
-- [ ] Search Engine Customisation
-- [ ] Allow a variable number of user links (fixed at 4 atm)
-- [ ] Add setting for number of RSS articles shown (fixed at 4 atm)
-- [ ] Fix Angular code structure
-- [ ] Exporting user settings to JSON, possibly ??
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
