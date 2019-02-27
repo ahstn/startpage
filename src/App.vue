@@ -5,8 +5,12 @@
     <v-content>
       <v-container fluid fill-height>
         <v-layout>
-          <v-flex lg6>
+          <v-flex d-flex lg6 style="flex-wrap: wrap; align-content: flex-start;">
             <HelloWorld lg3 v-for="folder in folders" :key="folder.title" v-bind:folder="folder" />
+          </v-flex>
+
+          <v-flex lg6>
+            <News lg12/>
           </v-flex>
         </v-layout>
       </v-container>
@@ -16,16 +20,28 @@
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import News from './components/News'
 import Toolbar from './components/Toolbar'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
+    News,
     Toolbar
   },
   data: () => ({
     folders: [
+      {
+        title: "Personal",
+        icon: "person",
+        items: [
+          { title: 'Gmail' },
+          { title: 'Outlook' },
+          { title: 'Keep' },
+          { title: 'Drive' }
+        ]
+      },
       {
         title: "Shopping",
         icon: "shopping_cart",
